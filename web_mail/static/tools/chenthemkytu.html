@@ -1,0 +1,226 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="/assets/vendors/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="/assets/vendors/css/vendor.bundle.base.css">
+  <!-- endinject -->
+  <!-- Plugin css for this page -->
+  <link rel="stylesheet" href="/assets/vendors/flag-icon-css/css/flag-icon.min.css">
+  <link rel="stylesheet" href="/assets/vendors/jvectormap/jquery-jvectormap.css">
+  <!-- End plugin css for this page -->
+  <!-- Layout styles -->
+  <link rel="stylesheet" href="/assets/css/demo/style.css">
+  <link rel="stylesheet" href="/assets/css/fix.css">
+  <!-- End layout styles -->
+  <link rel="shortcut icon" href="/assets/images/favicon.png" />
+</head>
+<body>
+<script src="/assets/js/preloader.js"></script>
+<script src="/function.js"></script>
+
+<div class="body-wrapper">
+    <!-- partial:partials/_sidebar.html -->
+    <aside class="mdc-drawer mdc-drawer--dismissible mdc-drawer--open">
+        
+        <div class="mdc-drawer__content">
+            <div class="mdc-list-group">
+                
+            </div>
+        </div>
+    </aside>
+    <!-- partial -->
+    <div class="main-wrapper mdc-drawer-app-content">
+        <!-- partial:partials/_navbar.html -->
+        <header class="mdc-top-app-bar">
+            <div class="mdc-top-app-bar__row">
+                
+                <div
+                    class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end mdc-top-app-bar__section-right">
+                    
+                    <div class="divider d-none d-md-block"></div>
+                    
+                    
+                </div>				
+        </header>
+        <!-- partial -->
+        <div class="page-wrapper mdc-toolbar-fixed-adjust">
+            <main class="content-wrapper">
+			
+			
+			
+<script language="javascript">
+function checkExceltoUserpass() {
+    var checkExceltoUserpass = $('#checkExceltoUserpass:checkbox:checked').length;
+    if (checkExceltoUserpass == 1) {
+        $('#checkUserpasstoExcel').prop('checked', false);
+    }
+    $('#lbtxtKytugoc').attr('class', "mdc-floating-label mdc-floating-label--float-above");
+    $('#lbtxtKytuthaythe').attr('class', "mdc-floating-label mdc-floating-label--float-above");
+    $('#txtKytugoc').val("	");
+    $('#txtKytuthaythe').val("|");
+}
+
+function checkUserpasstoExcel() {
+    var checkUserpasstoExcel = $('#checkUserpasstoExcel:checkbox:checked').length;
+    if (checkUserpasstoExcel == 1) {
+        $('#checkExceltoUserpass').prop('checked', false);
+    }
+    $('#lbtxtKytugoc').attr('class', "mdc-floating-label mdc-floating-label--float-above");
+    $('#lbtxtKytuthaythe').attr('class', "mdc-floating-label mdc-floating-label--float-above");
+    $('#txtKytugoc').val("|");
+    $('#txtKytuthaythe').val("	");
+}
+function escapeRegExp(str) {
+    return str.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
+}
+function replaceAll(str, find, replace) {
+    return str.replace(new RegExp(escapeRegExp(find), 'g'), replace);
+}
+function thaythe() {
+    var input1 = document.getElementById("txtInput").value;
+    var output = "";
+    var outputarray = [];
+    var kytugocs = document.getElementById("txtKytugoc").value;
+    var kytuthaythe = document.getElementById("txtKytuthaythe").value;
+	var vitrithaythe = kytuthaythe.split("|")[0];
+	var noidungthaythe = kytuthaythe.split("|")[1];
+    var lines = input1.split("\n");
+    for (var j = 0; j < lines.length; j++) {
+        var line = lines[j].trim();
+        if (line == "") {
+            continue;
+        }
+		var liness = line.split(kytugocs)
+		var linemoi = "";
+		for (var z = 0; z < liness.length; z++) {
+			if (z == vitrithaythe){
+				var noidungthaythez = noidungthaythe;
+			  if (noidungthaythe.indexOf("{id}") >= 0){
+				noidungthaythez = replaceAll(noidungthaythe,"{id}", line.split('@')[0]);
+			  }
+			  linemoi = linemoi + noidungthaythez + kytugocs;
+			}else{
+			  linemoi = linemoi + liness[z] + kytugocs;
+			}
+		}	
+	
+        //line = line.replace(kytugocs, kytuthaythe)
+       // line= replaceAll(line,kytugocs, kytuthaythe);
+        //alert(line);
+        var exists = outputarray.includes(linemoi);
+        if (exists == false) {
+            outputarray.push(linemoi);
+        }
+    }
+    if (outputarray.length == 0) {
+        outputarray = "Không có kết quả";
+    }
+    $('#lbKetqua').css('display', '');
+    $('#txtKetqua').css('display', '');
+    var ketqua = outputarray.toString().replace(/,/g, "\n");
+    $('#txtKetqua').html(ketqua);
+}
+</script>
+<title>Chèn ký tự</title>
+<div class="mdc-layout-grid">
+    <div class="mdc-layout-grid__inner">
+        <div class="mdc-layout-grid__cell--span-12">
+            <div class="mdc-card">
+            <h2 class="login-header w3_header">Chèn ký tự</h2>
+                <div id="result"></div>
+                <div class="template-demo">
+                    <div class="mdc-layout-grid__inner">
+                        <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12-desktop">
+
+                            <textarea class="mdc-text-field__input" id="txtInput" value="" rows="10"
+                                cols="150"></textarea>
+
+                        </div>
+                        <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+                            <div class="mdc-text-field mdc-text-field--outlined">
+                                <input class="mdc-text-field__input" id="txtKytugoc" value="">
+                                <div class="mdc-notched-outline mdc-notched-outline--upgraded">
+                                    <div class="mdc-notched-outline__leading"></div>
+                                    <div class="mdc-notched-outline__notch" style="">
+                                        <label id="lbtxtKytugoc" for="text-field-hero-input" class="mdc-floating-label"
+                                            style="">Split</label>
+                                    </div>
+                                    <div class="mdc-notched-outline__trailing"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+                            <div class="mdc-text-field mdc-text-field--outlined">
+                                <!-- mdc-text-field mdc-text-field--outlined mdc-text-filed--focused -->
+                                <input class="mdc-text-field__input" id="txtKytuthaythe" value="2|{id}13@outlook.com">
+                                <div class="mdc-notched-outline mdc-notched-outline--upgraded">
+                                    <div class="mdc-notched-outline__leading"></div>
+                                    <div class="mdc-notched-outline__notch" style="">
+                                        <label id="lbtxtKytuthaythe" for="text-field-hero-input"
+                                            class="mdc-floating-label" style="">Vị trí chèn | nội dung</label>
+                                    </div>
+                                    <div class="mdc-notched-outline__trailing"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                    <button onclick="thaythe();" class="mdc-button mdc-button--outlined mdc-ripple-upgraded"
+                        style="--mdc-ripple-fg-size:65px; --mdc-ripple-fg-scale:1.929; --mdc-ripple-fg-translate-start:29.5px, -21.5px; --mdc-ripple-fg-translate-end:22.3125px, -14.5px;  ">Thay
+                        thế</button>
+                </div>
+                <br><br>
+                <h2 class="login-header w3_header" id="lbKetqua" style="display:none">Kết quả</h2>
+                <textarea class="mdc-text-field__input" rows="10" cols="150" id="txtKetqua"
+                    style="display:none"></textarea>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</main>
+        <!-- partial:partials/_footer.html -->
+        <footer>
+          <div class="mdc-layout-grid">
+            <div class="mdc-layout-grid__inner">
+              <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+                <span class="tx-14">Copyright © 2019 <a href="https://www.bootstrapdash.com/" target="_blank">BootstrapDash</a>. All rights reserved.</span>
+              </div>
+              <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop d-flex justify-content-end">
+                <div class="d-flex align-items-center">
+                  <a href="">Documentation</a>
+                  <span class="vertical-divider"></span>
+                  <a href="">FAQ</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </footer>
+        <!-- partial -->
+      </div>
+    </div>
+  </div>
+  <!-- plugins:js -->
+  <script src="/assets/vendors/js/vendor.bundle.base.js"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page-->
+  <script src="/assets/vendors/chartjs/Chart.min.js"></script>
+  <script src="/assets/vendors/jvectormap/jquery-jvectormap.min.js"></script>
+  <script src="/assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+  <!-- End plugin js for this page-->
+  <!-- inject:js -->
+  <script src="/assets/js/material.js"></script>
+  <script src="/assets/js/misc.js"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page-->
+  <script src="/assets/js/dashboard.js"></script>
+  <!-- End custom js for this page-->
+</body>
+</html> 

@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+{% include 'include/header.html' %}
+<style>
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body input {
+    border: none;
+  }
+
+  body input:focus {
+    outline: none;
+  }
+
+
+
+
+  /* Set a style for all buttons */
+  button {
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+  }
+
+  button:hover {
+    opacity: 1;
+  }
+
+  /* Float cancel and delete buttons and add an equal width */
+  .cancelbtn,
+  .deletebtn {
+    float: left;
+    width: 50%;
+  }
+
+  /* Add a color to the cancel button */
+  .cancelbtn {
+    background-color: #ccc;
+    color: black;
+  }
+
+  /* Add a color to the delete button */
+  .deletebtn {
+    background-color: #f44336;
+  }
+
+  /* Add padding and center-align text to the container */
+  .container {
+    padding: 16px;
+    text-align: center;
+  }
+
+  /* The Modal (background) */
+  .modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: #474e5d;
+    padding-top: 50px;
+  }
+
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto;
+    /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 80%;
+    /* Could be more or less, depending on screen size */
+  }
+
+  /* Style the horizontal ruler */
+  hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+  }
+
+  /* The Modal Close Button (x) */
+  .close {
+    position: absolute;
+    right: 35px;
+    top: 15px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #f1f1f1;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: #f44336;
+    cursor: pointer;
+  }
+
+  /* Clear floats */
+  .clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+  /* Change styles for cancel button and delete button on extra small screens */
+  @media screen and (max-width: 300px) {
+
+    .cancelbtn,
+    .deletebtn {
+      width: 100%;
+    }
+  }
+
+  .display_heading {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  ._1MmTVs {
+    padding: 12px 0;
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 5%);
+    color: #212121;
+    background: #eaeaea;
+    /* border-radius: 10px 10px 0 10px; */
+    border-radius: 10px;
+  }
+
+  .imagePrd {
+    border: 1px solid lightgray;
+    margin-left: 5px;
+    margin-right: 10px;
+  }
+
+  ._1MmTVs>input {
+    flex: 1;
+    font-size: 14px;
+    line-height: 16px;
+    border: 0;
+    outline: none;
+    background-color: inherit;
+  }
+
+  ._1MmTVs>svg {
+    margin: 0 15px;
+    stroke: #bbb;
+  }
+
+  .groups {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+
+
+  }
+
+  label {
+    color: black;
+  }
+
+
+
+
+  .groups>.lbcountry>select {
+    /* margin: 0 10px 0 10px;
+    width: 144px; */
+
+    width: 196px;
+    background-color: #f0f0f0;
+
+
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+
+    word-wrap: normal;
+    text-transform: none;
+    border-color: #f0f0f0;
+    max-height: 100px;
+  }
+
+
+  .groups>.lbcountry>label {
+    font-size: 16px;
+    padding-right: 5px;
+  }
+</style>
+
+<body>
+  <div class="yoo-height-b60 yoo-height-lg-b60"></div>
+  <div class="yoo-headersidebar-toggle">
+    <div class="yoo-button-bar1"></div>
+    <div class="yoo-button-bar2"></div>
+    <div class="yoo-button-bar3"></div>
+  </div>
+  <!-- .yoo-headersidebar-toggle -->
+  {% include 'include/headersidebar.html' %}
+
+
+  <div class="yoo-content yoo-style1">
+    <div class="yoo-height-b30 yoo-height-lg-b30"></div>
+    <div class="container-fluid">
+      <div class="yoo-uikits-heading">
+        <h2 class="yoo-uikits-title">Danh sách mail <span>&#10159;</span> <label id="countmail">0</label></h2>
+      </div>
+    </div>
+    <div class="yoo-height-b30 yoo-height-lg-b30"></div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12">
+
+          <div class="yoo-card yoo-style1">
+
+            <div class="yoo-card-heading">
+              <div class="groups">
+                <div class="lbcountry"><label>Thư mục:</label>
+                  <select id="groups">
+
+                  </select>
+                </div>
+              </div>
+
+
+              <div class="col-md-12"
+                style="display:flex ; justify-content:space-between ; margin-top : 20px ; padding:0 ; ">
+
+                <div class="form-group" style="width : 33% ;margin-bottom:8px!important;">
+                  <div class="yoo-select">
+                    <select id="combongaytaomail" class="form-control">
+
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group" style="width : 33% ;margin-bottom:8px!important;">
+                  <div class=" yoo-select">
+                    <select id="combostatus" class="form-control">
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group" style="width : 33% ;margin-bottom:8px !important;">
+                  <div class="yoo-select">
+                    <select id="combodevice" class="form-control">
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3_btn" style="display:flex ; justify-content:space-between ; width: 100%;">
+                <div class="btn_load-mail" style="width : 33%">
+                  <button type="button" ripple="ripple" ripple-color="#fff" class="btn btn-primary btn-lg"
+                    onclick="loadMail(1)">Load mail</button>
+                </div>
+                <div class="btn_export-mail" style="width : 33%; margin-left:20px">
+                  <button type="button" ripple="ripple" ripple-color="#fff" class="btn btn-primary btn-lg"
+                    onclick="xuatMail(event)">Xuất</button>
+                </div>
+                <div class="btn_export-mail" style="width : 33%; margin-left:20px">
+                  <button type="button" ripple="ripple" ripple-color="#fff" class="btn btn-primary btn-lg"
+                    onclick="updateStatus(event)">Update Status</button>
+                </div>
+              </div>
+
+
+              <div class="ipn_search" style="width: 100%;">
+                <div class="_1MmTVs"><svg width="19px" height="19px" viewBox="0 0 19 19">
+                    <g id="Search-New" stroke-width="1" fill="none" fill-rule="evenodd">
+                      <g id="my-purchase-copy-27" transform="translate(-399.000000, -221.000000)" stroke-width="2">
+                        <g id="Group-32" transform="translate(400.000000, 222.000000)">
+                          <circle id="Oval-27" cx="7" cy="7" r="7"></circle>
+                          <path d="M12,12 L16.9799555,16.919354" id="Path-184" stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                        </g>
+                      </g>
+                    </g>
+                  </svg><input autocomplete="off" placeholder="Tìm kiếm" id="ipn_search" value="">
+                </div>
+              </div>
+              <b><span class="" id="liveverify" style="color:blue; margin-top : 20px ; padding:0 ;"></span></b>
+
+
+            </div>
+            <!-- <div class="col-md-2">
+
+              </div>
+              <div class="col-md-2">
+
+              </div> -->
+
+
+
+
+            <div class="yoo-card-body">
+              <div class="yoo-padd-lr-20" style="
+              font-size: 14px;">
+                <div class="yoo-height-b20 yoo-height-lg-b20"></div>
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th scope="col" width="2%">#</th>
+                      <th scope="col" width="5%">email</th>
+                      <th scope="col" width="5%">password</th>
+                      <th scope="col" width="5%">emailrecovery</th>
+                      <th scope="col" width="5%">status</th>
+                      <th scope="col" width="5%">youtube</th>
+                      <th scope="col" width="5%">birthday</th>
+                      <th scope="col" width="5%">phonerecovery</th>
+                      <th scope="col" width="5%">country</th>
+                      <th scope="col" width="5%">googleadw</th>
+                      <th scope="col" width="5%">googleadsense</th>
+                      <th scope="col" width="5%">chplay</th>
+                      <th scope="col" width="5%">paymentmethod</th>
+                      <th scope="col" width="5%">googlevoice</th>
+                      <th scope="col" width="5%">groups</th>
+                      <th scope="col" width="5%">datecreate</th>
+                      <th scope="col" width="5%">updater</th>
+                      <th scope="col" width="5%">proxy</th>
+                      <th scope="col" width="5%">proxylist</th>
+                      <th scope="col" width="5%">#</th>
+                    </tr>
+                  </thead>
+                  <tbody id="files"></tbody>
+                </table>
+
+                <div id="page" style="display:flex ; justify-content: center;"></div>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- .yoo-card -->
+      <div class="yoo-height-b30 yoo-height-lg-b30"></div>
+
+
+      {% include 'include/footer.html' %}
+      <!-- .yoo-card -->
+
+    </div>
+    <!-- .yoo-content -->
+    <script>
+
+      // Get the modal
+      var modal = document.getElementById('id01');
+
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function (event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+
+
+
+      $(document).ready(function () {
+        $('#ipn_search').keypress(function (e) {
+          if (e.keyCode == 13) {
+            Search(1);
+          }
+        });
+        $('.hwid').keypress(function (e) {
+          if (e.keyCode == 13) {
+            console.log("1234")
+          }
+        });
+      });
+      function Search(page) {
+        var search = $("#ipn_search").val()
+        if (search == "") {
+          loadMail("1")
+          return
+        }
+        $.ajax({
+          url: "/mailsearch/" + search + "?page=" + page,
+          type: "get",
+          beforeSend: function (request) {
+            request.setRequestHeader("Authorization", "Bearer " + window.localStorage.token);
+          },
+          dataType: "text",
+          success: function (results) {
+            const obj = JSON.parse(results);
+            var max = obj.max;
+            var count = obj.count
+            var pagedu = count % max
+            if (pagedu != 0) {
+              pagedu = 1
+            }
+            var countpage = count / max + pagedu
+            var result = obj.result;
+            var stringToRender = ""
+            var paginations = `<ul class="pagination pagination-lg">`
+
+            var pageshow = pagination(page, countpage)
+
+
+            for (let i = 0; i < pageshow.length; i++) {
+              var pageht = pageshow[i]
+              if (pageht == page || pageht == "...") {
+                paginations = paginations +
+                  `<li class="page-item disabled"><a class="page-link" href="#" tabindex="-1">${pageht}</a></li>`
+              } else {
+                paginations = paginations +
+                  // `<li class="page-item"><a class="page-link" href="${window.location.pathname}?page=${pageht}">${pageht}</a></li>`
+                  `<li class="page-item"><a class="page-link" style="color:blue" onclick="Search(${pageht})">${pageht}</a></li>`
+              }
+            }
+            // paginations = paginations + `</ul>`
+
+            // for (let i = 0; i < result.length; i++) {
+            //   const onePost = result[i];
+            //   //  console.log(onePost)
+            //   stringToRender +=
+            //     `<tr id="${onePost.id}"><td>${i + 1}</td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.email}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.password}"></td><td><input type="text" style="width:100%;" value="${onePost.emailrecovery}"></td><td><input type="text" value="${onePost.status}"></td><td><input type="text" value="${onePost.birthday}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.phonerecovery}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.groups}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.datecreate}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.updater}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.proxy}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.proxylist}"></td><td><a nohref style='cursor:pointer;color:blue;text-decoration:underline' onClick='Del("${onePost.id}");'>Xóa</a> | <a nohref style='cursor:pointer;color:blue;text-decoration:underline' onClick='Update("${onePost.id}");'>Update</a></td>`;
+            // }
+
+            // $("#files").html(stringToRender);
+            // $("#page").html(paginations);
+            // $("#countmail").html("" + count + "");
+            // $('input[value="undefined"]').val("");
+            paginations = paginations + `</ul>`
+            let verify = 0;
+            let x = 0;
+            for (let i = 0; i < result.length; i++) {
+              x = x + 1
+              const onePost = result[i];
+              if (Contains(onePost.status, "Verify") == true || Contains(onePost.status, "Disable") == true) {
+                verify = verify + 1;
+              }
+              //  console.log(onePost)
+              stringToRender +=
+                `<tr id="${onePost.id}"><td>${i + 1}</td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.email}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.password}"></td><td><input type="text" style="width:100%;" value="${onePost.emailrecovery}"></td><td><input type="text" value="${onePost.status}"></td><td><input type="text" style="width:100%;" value="${onePost.youtube}"></td><td><input type="text" value="${onePost.birthday}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.phonerecovery}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.country}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.googleadw}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.googleadsense}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.chplay}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.paymentmethod}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.googlevoice}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.groups}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.datecreate}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.updater}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.proxy}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.proxylist}"></td><td><a nohref style='cursor:pointer;color:blue;text-decoration:underline' onClick='Del("${onePost.id}");'>Xóa</a> | <a nohref style='cursor:pointer;color:blue;text-decoration:underline' onClick='Update("${onePost.id}");'>Update</a></td>`;
+            }
+            let tileveri = Math.ceil(verify / x * 100)
+            let tilelive = 100 - tileveri
+            $("#files").html(stringToRender);
+            $("#page").html(paginations);
+            $("#countmail").html("" + count + "");
+            $("#liveverify").html("<span>&#9758;	</span>Verify: " + verify + " (" + tileveri + "%) <span>&#10159;</span> Live: " + (x - verify) + " (" + tilelive + "%)");
+            $('input[value="undefined"]').val("");
+            // $('tr > *:nth-child(7)').hide();
+            // $('tr > *:nth-child(8)').hide();
+            // $('tr > *:nth-child(10)').hide();
+            // $('tr > *:nth-child(13)').hide();
+
+          },
+          error: function (results) {
+            window.location.href = "login.html"
+            return
+          }
+        });
+      }
+
+      function Xuat() {
+        var list = document.querySelectorAll("tr")
+        var output = ""
+        for (let i = 1; i < list.length; i++) {
+          var listi = list[i]
+          var email = listi.children[1].children[0].value
+          var pass = listi.children[2].children[0].value
+          var emailrecovery = listi.children[3].children[0].value
+          var datecreate = listi.children[8].children[0].value
+          output = output + email + "|" + pass + "|" + emailrecovery + "|" + datecreate + "<br>"
+        }
+        // window.open(output)
+        var myWindow = window.open("", "");
+        myWindow.document.write(output);
+        // downloadFile("mail.txt", output)
+        // console.log(output)
+      }
+
+
+      function getDateByGroups() {
+        var groups = $("#groups").val()
+        $.ajax({
+          url: "/getDateByGroups?groups=" + groups,
+          type: "get",
+          beforeSend: function (request) {
+            request.setRequestHeader("Authorization", "Bearer " + window.localStorage.token);
+          },
+          dataType: "text",
+          success: function (result) {
+            let resultJson = JSON.parse(result).result;
+            let stringToRender =
+              "<option>Date create</option>";
+            let x = 0;
+            for (let i = 0; i < resultJson.length; i++) {
+              x = x + 1;
+              const onePost = resultJson[i];
+              stringToRender += `<option>${onePost}</option>`;
+            }
+            $("#combongaytaomail").html(stringToRender);
+            $("#combodevice").html('<option>Device</option>');
+            $("#combostatus").html('<option>Status</option>');
+            getInfoByDateGroups();
+          },
+          error: function (results) {
+            window.location.href = "login.html"
+            return
+          }
+        });
+      }
+      $("#combongaytaomail").on("change", function (e) {
+        getInfoByDateGroups();
+      });
+      $("#groups").on("change", function (e) {
+        getDateByGroups();
+      });
+
+      getGroups()
+
+
+      function getGroups() {
+        $.ajax({
+          url: "/getGroups",
+          type: "get",
+          beforeSend: function (request) {
+            request.setRequestHeader("Authorization", "Bearer " + window.localStorage.token);
+          },
+          dataType: "text",
+          success: function (result) {
+            var resultJson = JSON.parse(result);
+            var groups = resultJson.groups
+            var stringToRender =
+              "<option>Tất cả</option>";
+            var x = 0;
+            for (let i = 0; i < groups.length; i++) {
+              x = x + 1;
+              var onePost = groups[i];
+              stringToRender += `<option>${onePost}</option>`;
+            }
+            $("#groups").html(stringToRender);
+            getDateByGroups();
+          },
+          error: function (results) {
+            window.location.href = "login.html"
+            return
+          }
+        });
+      }
+
+      function getInfoByDateGroups() {
+        var groups = $("#groups").val()
+        var date = $("#combongaytaomail").val()
+        $.ajax({
+          url: "/getInfoByDateGroups?date=" + date + "&groups=" + groups,
+          type: "get",
+          beforeSend: function (request) {
+            request.setRequestHeader("Authorization", "Bearer " + window.localStorage.token);
+          },
+          dataType: "text",
+          success: function (result) {
+            var resultJson = JSON.parse(result);
+            var statuss = resultJson.status
+            var stringToRender =
+              "<option>Tất cả</option>";
+            var x = 0;
+            for (let i = 0; i < statuss.length; i++) {
+              x = x + 1;
+              var onePost = statuss[i];
+              if (onePost == "") {
+                onePost = "Chưa chạy"
+              }
+              stringToRender += `<option>${onePost}</option>`;
+            }
+            $("#combostatus").html(stringToRender);
+
+            var devices = resultJson.device
+            stringToRender =
+              "<option>Tất cả</option>";
+            var x = 0;
+            for (let i = 0; i < devices.length; i++) {
+              x = x + 1;
+              const onePost = devices[i];
+              stringToRender += `<option>${onePost}</option>`;
+            }
+            $("#combodevice").html(stringToRender);
+
+          },
+          error: function (results) {
+            window.location.href = "login.html"
+            return
+          }
+        });
+      }
+      var varexport = null;
+      function getmailexport(id) {
+        $.ajax({
+          url: "getmailexport?id=" + id,
+          type: "get",
+          beforeSend: function (request) {
+            request.setRequestHeader("Authorization", "Bearer " + window.localStorage.token);
+          },
+          contentType: 'application/json',
+          success: function (result) {
+            var msg = result.mess;
+            if (msg == undefined) {
+              msg = ""
+            }
+            // console.log("111111111" + "_" + msg)
+            if (msg != "") {
+              toastr.warning(msg);
+              if (msg == "Đang download mail...") {
+                clearInterval(varexport)
+              }
+            } else {
+              clearInterval(varexport)
+              oldstatus = localStorage.getItem("oldstatus")
+              combostatus = localStorage.getItem("combostatus")
+              results = result.split("\n")
+              allloginok = ""
+              allchuachay = ""
+              allkhac = ""
+              allsaipass = ""
+              for (let i = 0; i < results.length; i++) {
+                mailht = results[i]
+                if (combostatus != "Tất cả") {
+                  break
+                }
+                status = mailht.split("|")[oldstatus]
+                if (status === "" || status === "Loading...") {
+                  allchuachay = allchuachay + mailht + "\n"
+                } else if (status === "login ok" || status.startsWith("change")) {
+                  allloginok = allloginok + mailht + "\n"
+                } else if (status.startsWith("Your password was changed") || status.startsWith("Wrong password. Try again or click Forgot password to reset it.")) {
+                  allsaipass = allsaipass + mailht + "\n"
+                } else {
+                  allkhac = allkhac + mailht + "\n"
+                }
+              }
+              // console.log(results)
+              // delmailexport()
+              downloadFile(getTime() + "_All.txt", result)
+              if (allloginok != "") {
+                downloadFile(getTime() + "_Login ok.txt", allloginok)
+              }
+              if (allchuachay != "") {
+                downloadFile(getTime() + "_Chưa chạy.txt", allchuachay)
+              }
+              if (allkhac != "") {
+                downloadFile(getTime() + "_Khác.txt", allkhac)
+              }
+              if (allsaipass != "") {
+                downloadFile(getTime() + "_Sai pass.txt", allsaipass)
+              }
+              // openDataNewTab(result)
+              toastr.success("Download file thành công")
+            }
+          }
+        });
+      }
+      function delmailexport() {
+        $.ajax({
+          url: "delmailexport",
+          type: "get",
+          beforeSend: function (request) {
+            request.setRequestHeader("Authorization", "Bearer " + window.localStorage.token);
+          },
+          contentType: 'application/json',
+          success: function (result) {
+            console.log(result);
+          }
+        });
+      }
+      function loadMail(page) {
+        var date = $("#combongaytaomail").val()
+        var status = $("#combostatus").val()
+        var device = $("#combodevice").val()
+        var groups = $("#groups").val()
+        var search = window.location.search;
+        // var page = "1";
+        // var pages = Regex(search, /page=(\d+)/)
+        // if (pages != null && pages.length > 1) {
+        //   page = pages[1]
+        // }
+        $.ajax({
+          url: "/loadMail?page=" + page + "&datecreate=" + date + "&status=" + status + "&device=" + device + "&groups=" + groups,
+          type: "get",
+          beforeSend: function (request) {
+            request.setRequestHeader("Authorization", "Bearer " + window.localStorage.token);
+          },
+          dataType: "text",
+          success: function (results) {
+            const obj = JSON.parse(results);
+            var max = obj.max;
+            var count = obj.count
+            var pagedu = count % max
+            if (pagedu != 0) {
+              pagedu = 1
+            }
+            var countpage = count / max + pagedu
+            var result = obj.result;
+
+            var stringToRender = ""
+            var paginations = `<ul class="pagination pagination-lg">`
+
+            var pageshow = pagination(page, countpage)
+
+
+            for (let i = 0; i < pageshow.length; i++) {
+              var pageht = pageshow[i]
+              if (pageht == page || pageht == "...") {
+                paginations = paginations +
+                  `<li class="page-item disabled"><a class="page-link" href="#" tabindex="-1">${pageht}</a></li>`
+              } else {
+                paginations = paginations +
+                  // `<li class="page-item"><a class="page-link" href="${window.location.pathname}?page=${pageht}">${pageht}</a></li>`
+                  `<li class="page-item"><a class="page-link" style="color:blue" onclick="loadMail(${pageht})">${pageht}</a></li>`
+              }
+            }
+            paginations = paginations + `</ul>`
+            let verify = 0;
+            let x = 0;
+            for (let i = 0; i < result.length; i++) {
+              x = x + 1
+              const onePost = result[i];
+              if (Contains(onePost.status, "Verify") == true || Contains(onePost.status, "Disable") == true) {
+                verify = verify + 1;
+              }
+              console.log(onePost)
+              stringToRender +=
+                `<tr id="${onePost.id}"><td>${i + 1}</td><td><input type="text" style="width:100%;" value="${onePost.email}"></td><td><input type="text" style="width:100%;" value="${onePost.password}"></td><td><input type="text" style="width:100%;" value="${onePost.emailrecovery}"></td><td><input type="text" style="width:100%;" value="${onePost.status}"></td><td><input type="text" style="width:100%;" value="${onePost.youtube}"></td><td><input type="text" value="${onePost.birthday}"></td><td><input type="text" style="width:100%;" value="${onePost.phonerecovery}"></td><td><input type="text" style="width:100%;" value="${onePost.country}"></td><td><input type="text" style="width:100%;" value="${onePost.googleadw}"></td><td><input type="text" style="width:100%;" value="${onePost.googleadsense}"></td><td ><input type="text" style="width:100%;" value="${onePost.chplay}"></td><td><input type="text" style="width:100%;" value="${onePost.paymentmethod}"></td><td><input type="text" style="width:100%;" value="${onePost.googlevoice}"></td><td><input type="text" style="width:100%;" value="${onePost.groups}"></td><td><input type="text" style="width:100%;" value="${onePost.datecreate}"></td><td><input type="text" style="width:100%;" value="${onePost.updater}"></td><td><input type="text" style="width:100%;" value="${onePost.proxy}"></td><td><input type="text" style="width:100%;" value="${onePost.proxylist}"></td><td><a nohref style='cursor:pointer;color:blue;text-decoration:underline' onClick='Del("${onePost.id}");'>Xóa</a> | <a nohref style='cursor:pointer;color:blue;text-decoration:underline' onClick='Update("${onePost.id}");'>Update</a></td>`;
+              // `<tr id="${onePost.id}"><td>${i + 1}</td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.email}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.password}"></td><td><input type="text" style="width:100%;" value="${onePost.emailrecovery}"></td><td><input type="text" value="${onePost.status}"></td><td><input type="text" value="${onePost.youtube}"></td><td><input type="text" value="${onePost.birthday}"></td><td><input type="text" value="${onePost.phonerecovery}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.country}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.googleadw}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.googleadsense}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.chplay}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.paymentmethod}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.googlevoice}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.groups}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.datecreate}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.updater}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.proxy}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.proxylist}"></td><td><a nohref style='cursor:pointer;color:blue;text-decoration:underline' onClick='Del("${onePost.id}");'>Xóa</a> | <a nohref style='cursor:pointer;color:blue;text-decoration:underline' onClick='Update("${onePost.id}");'>Update</a></td>`;
+            }
+            let tileveri = Math.ceil(verify / x * 100)
+            let tilelive = 100 - tileveri
+            $("#files").html(stringToRender);
+            $("#page").html(paginations);
+            $("#countmail").html("" + count + "");
+            $("#liveverify").html("<span>&#9758;	</span>Verify: " + verify + " (" + tileveri + "%) <span>&#10159;</span> Live: " + (x - verify) + " (" + tilelive + "%)");
+            $('input[value="undefined"]').val("");
+            $('tr > *:nth-child(7)').hide();
+            // $('tr > *:nth-child(8)').hide();
+            $('tr > *:nth-child(18)').hide();
+            $('tr > *:nth-child(19)').hide();
+          },
+          error: function (results) {
+            window.location.href = "login.html"
+            return
+          }
+        });
+      }
+
+      function xuatMail() {
+        var oldexport = localStorage.getItem("oldexport")
+        if (oldexport == null || oldexport == "") {
+          oldexport = 'email,password,emailrecovery,datecreate,status,youtube'
+        }
+        var columnexport = prompt("Nhập các cột muốn xuất", oldexport);
+        if (columnexport == null) {
+          toastr.warning("Hủy xuất");
+          return
+        }
+        columnexports = columnexport.split(",")
+        oldstatus = -1
+        for (let i = 0; i < columnexports.length; i++) {
+          console.log(columnexports[i])
+          if (columnexports[i] == "status") {
+            oldstatus = i
+            break
+          }
+        }
+        if (oldstatus == -1) {
+          toastr.warning("Hãy nhập thêm cột status vào nơi xuất");
+          return
+        }
+        localStorage.setItem("oldexport", columnexport)
+        localStorage.setItem("oldstatus", oldstatus)
+        var date = $("#combongaytaomail").val()
+        var status = $("#combostatus").val()
+        localStorage.setItem("combostatus", status)
+        var device = $("#combodevice").val()
+        var groups = $("#groups").val()
+        var search = window.location.search;
+        // var page = "1";
+        // var pages = Regex(search, /page=(\d+)/)
+        // if (pages != null && pages.length > 1) {
+        //   page = pages[1]
+        // }
+        $.ajax({
+          url: "/xuatMail?datecreate=" + date + "&status=" + status + "&device=" + device + "&groups=" + groups + "&columnexport=" + columnexport,
+          type: "get",
+          beforeSend: function (request) {
+            request.setRequestHeader("Authorization", "Bearer " + window.localStorage.token);
+          },
+          dataType: "text",
+          success: function (results) {
+            const obj = JSON.parse(results);
+            var id = obj.id;
+            if (id == undefined) {
+              toastr.error(obj.mess);
+              return
+            }
+            varexport = setInterval(() => getmailexport(id), 1000);
+          },
+          error: function (results) {
+            window.location.href = "login.html"
+            return
+          }
+        });
+      }
+      function updateStatus() {
+        var statusupdate = prompt("Nhập status muốn cập nhật", '');
+        if (statusupdate == null) {
+          toastr.warning("Hủy cập nhật");
+          return
+        }
+        var date = $("#combongaytaomail").val()
+        var status = $("#combostatus").val()
+        var device = $("#combodevice").val()
+        var groups = $("#groups").val()
+        $.ajax({
+          url: "/updateStatus?datecreate=" + date + "&status=" + status + "&device=" + device + "&groups=" + groups + "&statusupdate=" + statusupdate,
+          type: "get",
+          beforeSend: function (request) {
+            request.setRequestHeader("Authorization", "Bearer " + window.localStorage.token);
+          },
+          dataType: "text",
+          success: function (results) {
+            const obj = JSON.parse(results);
+            var result = obj.mess;
+            if (result == "success") {
+              toastr.success("Chạy lại thành công");
+              getInfoByDateGroups();
+            } else {
+              toastr.success(result);
+            }
+          }
+        });
+      }
+      function Del(id) {
+        var r = confirm("Xác nhận xóa!");
+        if (r !== true) {
+          return
+        }
+        $.ajax({
+          url: "/maildelete/" + id,
+          type: "get",
+          beforeSend: function (request) {
+            request.setRequestHeader("Authorization", "Bearer " + window.localStorage.token);
+          },
+          dataType: "text",
+          success: function (results) {
+            const obj = JSON.parse(results);
+            var result = obj.mess;
+            if (result == "success") {
+              toastr.success("Xóa thành công");
+              document.getElementById(id).remove();
+            } else {
+              toastr.success(result);
+            }
+          }
+        });
+      }
+      function UpdateEnter(e, id) {
+        if (e.keyCode == 13) {
+          Update(id)
+          return
+        }
+      }
+      function Update(id) {
+        var r = confirm("Xác nhận update!");
+        if (r !== true) {
+          return
+        }
+        var select = document.querySelectorAll('tr[id="' + id + '"] > td')
+
+        var person = {
+          email: select[1].childNodes[0].value,
+          password: select[2].childNodes[0].value,
+          emailrecovery: select[3].childNodes[0].value,
+          status: select[4].childNodes[0].value,
+          datecreate: select[9].childNodes[0].value,
+        }
+        $.ajax({
+          url: "/mailedit/" + id,
+          type: "post",
+          dataType: "json",
+          beforeSend: function (request) {
+            request.setRequestHeader("Authorization", "Bearer " + window.localStorage.token);
+          },
+          data: JSON.stringify(person),
+          contentType: 'application/json',
+          success: function (result) {
+
+            // const obj = JSON.parse(result);
+            var msg = result.mess;
+
+            if (msg == "success") {
+              // $('#status').html(msg)
+              toastr.success("Cập nhật thành công");
+              // window.location.href = "/keymanager.html";
+              // var date = new Date("Februari 10, 2020");
+              // var dateString = date.toGMTString();
+              // var cookieString = result.split('|')[1] + dateString;
+
+              //location.reload();
+            } else {
+              // $('#status').html(msg)
+              toastr.error(msg);
+              // $("#status").html(result);
+            }
+          }
+        });
+      }
+
+    </script>
+    <!-- Required Scripts -->
+</body>
+
+</html>

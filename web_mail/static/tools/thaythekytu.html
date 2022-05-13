@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+{{template "header" .}}
+
+<body>
+  <div class="yoo-height-b60 yoo-height-lg-b60"></div>
+  <div class="yoo-sidebarheader-toggle">
+    <div class="yoo-button-bar1"></div>
+    <div class="yoo-button-bar2"></div>
+    <div class="yoo-button-bar3"></div>
+  </div>
+  <!-- .yoo-sidebarheader-toggle -->
+  {{template "sidebarheader" .}}
+  <div class="yoo-content yoo-style1">
+    <div class="yoo-height-b30 yoo-height-lg-b30"></div>
+    <div class="container-fluid">
+      <div class="yoo-uikits-heading">
+        <h2 class="yoo-uikits-title">{{.Title}}</h2>
+      </div>
+    </div>
+    <div class="yoo-height-b30 yoo-height-lg-b30"></div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="yoo-card yoo-style1">
+            <div class="yoo-card-heading">
+              <div class="yoo-card-heading-left">
+                <h2 class="yoo-card-title">Mail input</h2>
+              </div>
+              <div class="yoo-card-heading-right btn-toolbar pull-right">
+                <div class="row">
+                  <button type="button" ripple="ripple" ripple-color="#fff" class="btn btn-secondary btn-sm"
+                    style="margin: 0px 2px 0px 0px;" id="del" onclick="$('#input').val('');">Del</button>
+                  <button type="button" ripple="ripple" ripple-color="#fff" class="btn btn-primary btn-sm" id="copy"
+                    onclick="CopyTextareaToClipboard('input')">Copy</button>
+                </div>
+              </div>
+            </div>
+            <div class="yoo-card-body">
+              <div class="yoo-padd-lr-20">
+                <div class="yoo-height-b20 yoo-height-lg-b20"></div>
+                <form>
+                  <div class="form-group level-up">
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <label for="exampleFormControlTextarea1"></label>
+                        <textarea class="form-control" style="max-height: none;" id="input" rows="15"></textarea>
+                        <br>
+
+
+                      </div>
+                      <div class="col-lg-6">
+                        <input type="text" id="txtKytugoc" class="form-control" placeholder="Nhập ký tự gốc">
+                        <br>
+                        <input type="text" id="txtKytuthaythe" class="form-control" placeholder="Nhập ký tự thay thế">
+
+
+                        <br>
+
+                        <div class="col-sm-10">
+                          <div class="custom-control custom-radio mb-3">
+                            <input class="custom-control-input" type="radio" name="gridRadios" id="checkExcel"
+                              value="option1" onclick="checkExceltoUserpass(event)">
+                            <label class="custom-control-label" for="checkExcel">
+                              Thay thế dạng excel ra dạng user|pass
+                            </label>
+                          </div>
+                          <div class="custom-control custom-radio mb-3">
+                            <input class="custom-control-input" type="radio" name="gridRadios" id="checkUserpass"
+                              onclick="checkUserpasstoExcel(event)" value="option2">
+                            <label class="custom-control-label" for="checkUserpass">
+                              Thay thế dạng user|pass ra dạng excel
+                            </label>
+                          </div>
+                        </div>
+
+                        <br>
+                        <button type="button" ripple="ripple" ripple-color="#fff" class="btn btn-primary btn-lg"
+                          id="check" onclick="thaythe(event)">Thay thế</button>
+                        <br>
+                      </div>
+                    </div>
+
+                  </div>
+                </form>
+                <div class="yoo-height-b5 yoo-height-lg-b5"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="yoo-height-b30 yoo-height-lg-b30"></div>
+
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="yoo-card yoo-style1">
+            <div class="yoo-card-heading">
+              <div class="yoo-card-heading-left">
+                <h2 class="yoo-card-title">Mail output</h2>
+              </div>
+              <div class="yoo-card-heading-right btn-toolbar pull-right">
+                <div class="row">
+                  <button type="button" ripple="ripple" ripple-color="#fff" class="btn btn-secondary btn-sm"
+                    style="margin: 0px 2px 0px 0px;" id="del" onclick="$('#output').val('');">Del</button>
+                  <button type="button" ripple="ripple" ripple-color="#fff" class="btn btn-primary btn-sm" id="copy"
+                    onclick="CopyTextareaToClipboard('output')">Copy</button>
+                </div>
+              </div>
+            </div>
+            <div class="yoo-card-body">
+              <div class="yoo-padd-lr-20">
+                <div class="yoo-height-b20 yoo-height-lg-b20"></div>
+                <form>
+                  <div class="form-group level-up">
+                    <label for="exampleFormControlTextarea1"></label>
+                    <textarea class="form-control" style="max-height: none;" id="output" rows="15"></textarea>
+                  </div>
+                </form>
+                <div class="yoo-height-b5 yoo-height-lg-b5"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- .yoo-card -->
+      <div class="yoo-height-b30 yoo-height-lg-b30"></div>
+      <!-- .yoo-card -->
+      {{template "footer" .}}
+    </div>
+    <!-- .yoo-content -->
+
+    <script>
+      function checkExceltoUserpass() {
+        $('#txtKytugoc').val("	");
+        $('#txtKytuthaythe').val("|");
+      }
+
+      function checkUserpasstoExcel() {
+        $('#txtKytugoc').val("|");
+        $('#txtKytuthaythe').val("	");
+      }
+
+      function escapeRegExp(str) {
+        return str.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
+      }
+
+      function replaceAll(str, find, replace) {
+        return str.replace(new RegExp(escapeRegExp(find), 'g'), replace);
+      }
+
+      function thaythe() {
+        var input1 = document.getElementById("input").value;
+        var output = "";
+        var outputarray = [];
+        var kytugocs = document.getElementById("txtKytugoc").value;
+        var kytuthaythe = document.getElementById("txtKytuthaythe").value;
+        var lines = input1.split("\n");
+        for (var j = 0; j < lines.length; j++) {
+          var line = lines[j].trim();
+          if (line == "") {
+            continue;
+          }
+          //line = line.replace(kytugocs, kytuthaythe)
+          line = replaceAll(line, kytugocs, kytuthaythe);
+          //alert(line);
+          var exists = outputarray.includes(line);
+          if (exists == false) {
+            outputarray.push(line);
+          }
+        }
+        if (outputarray.length == 0) {
+          outputarray = "Không có kết quả";
+        }
+        var ketqua = outputarray.toString().replace(/,/g, "\n");
+        $('#output').html(ketqua.trim());
+      }
+
+    </script>
+    <!-- Required Scripts -->
+</body>
+
+</html>

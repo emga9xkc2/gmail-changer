@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+{% include 'include/header.html' %}
+<style>
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body input {
+    border: none;
+  }
+
+  body input:focus {
+    outline: none;
+  }
+
+
+
+
+  /* Set a style for all buttons */
+  button {
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+  }
+
+  button:hover {
+    opacity: 1;
+  }
+
+  /* Float cancel and delete buttons and add an equal width */
+  .cancelbtn,
+  .deletebtn {
+    float: left;
+    width: 50%;
+  }
+
+  /* Add a color to the cancel button */
+  .cancelbtn {
+    background-color: #ccc;
+    color: black;
+  }
+
+  /* Add a color to the delete button */
+  .deletebtn {
+    background-color: #f44336;
+  }
+
+  /* Add padding and center-align text to the container */
+  .container {
+    padding: 16px;
+    text-align: center;
+  }
+
+  /* The Modal (background) */
+  .modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: #474e5d;
+    padding-top: 50px;
+  }
+
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto;
+    /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 80%;
+    /* Could be more or less, depending on screen size */
+  }
+
+  /* Style the horizontal ruler */
+  hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+  }
+
+  /* The Modal Close Button (x) */
+  .close {
+    position: absolute;
+    right: 35px;
+    top: 15px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #f1f1f1;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: #f44336;
+    cursor: pointer;
+  }
+
+  /* Clear floats */
+  .clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+  /* Change styles for cancel button and delete button on extra small screens */
+  @media screen and (max-width: 300px) {
+
+    .cancelbtn,
+    .deletebtn {
+      width: 100%;
+    }
+  }
+
+  .display_heading {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  ._1MmTVs {
+    padding: 12px 0;
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 5%);
+    color: #212121;
+    background: #eaeaea;
+    /* border-radius: 10px 10px 0 10px; */
+    border-radius: 10px;
+  }
+
+  .imagePrd {
+    border: 1px solid lightgray;
+    margin-left: 5px;
+    margin-right: 10px;
+  }
+
+  ._1MmTVs>input {
+    flex: 1;
+    font-size: 14px;
+    line-height: 16px;
+    border: 0;
+    outline: none;
+    background-color: inherit;
+  }
+
+  ._1MmTVs>svg {
+    margin: 0 15px;
+    stroke: #bbb;
+  }
+</style>
+
+<body>
+  <div class="yoo-height-b60 yoo-height-lg-b60"></div>
+  <div class="yoo-headersidebar-toggle">
+    <div class="yoo-button-bar1"></div>
+    <div class="yoo-button-bar2"></div>
+    <div class="yoo-button-bar3"></div>
+  </div>
+  <!-- .yoo-headersidebar-toggle -->
+  {% include 'include/headersidebar.html' %}
+
+  <div class="yoo-content yoo-style1">
+    <div class="yoo-height-b30 yoo-height-lg-b30"></div>
+    <div class="container-fluid">
+      <div class="yoo-uikits-heading">
+        <h2 class="yoo-uikits-title"></h2>
+      </div>
+    </div>
+    <div class="yoo-height-b30 yoo-height-lg-b30"></div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12">
+
+          <div class="yoo-card yoo-style1">
+
+            <div class="yoo-card-heading">
+              <div class="yoo-card-heading-left">
+                <h2 class="yoo-card-title">Danh sách thiết bị<label class="yoo-card-title" id="countmail"></label>
+                </h2>
+              </div>
+              <div class="ipn_search" style="width: 50%;">
+                <div class="_1MmTVs"><svg width="19px" height="19px" viewBox="0 0 19 19">
+                    <g id="Search-New" stroke-width="1" fill="none" fill-rule="evenodd">
+                      <g id="my-purchase-copy-27" transform="translate(-399.000000, -221.000000)" stroke-width="2">
+                        <g id="Group-32" transform="translate(400.000000, 222.000000)">
+                          <circle id="Oval-27" cx="7" cy="7" r="7"></circle>
+                          <path d="M12,12 L16.9799555,16.919354" id="Path-184" stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                        </g>
+                      </g>
+                    </g>
+                  </svg><input autocomplete="off" placeholder="Tìm kiếm" id="ipn_search" value="">
+                </div>
+              </div>
+            </div>
+
+
+            <div class="yoo-card-body">
+              <div class="yoo-padd-lr-20">
+                <div class="yoo-height-b20 yoo-height-lg-b20"></div>
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th scope="col" width="2%">#</th>
+                      <th scope="col" width="10%">device</th>
+                      <th scope="col" width="15%">proxy</th>
+                      <th scope="col" width="15%">firstmail</th>
+                      <th scope="col" width="15%">namemail</th>
+                      <th scope="col" width="10%">time</th>
+                      <th scope="col" width="15%">#</th>
+                    </tr>
+                  </thead>
+                  <tbody id="files"></tbody>
+                </table>
+
+                <div id="page" style="display:flex ; justify-content: center;"></div>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- .yoo-card -->
+      <div class="yoo-height-b30 yoo-height-lg-b30"></div>
+
+      <div id="id01" class="modal">
+        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
+        <form class="modal-content" action="/action_page.php">
+          <div class="container">
+            <h1>Delete Account</h1>
+            <p>Are you sure you want to delete your account?</p>
+
+            <div class="clearfix">
+              <button type="button" onclick="document.getElementById('id01').style.display='none'"
+                class="cancelbtn">Cancel</button>
+              <button type="button" onclick="document.getElementById('id01').style.display='none'"
+                class="deletebtn">Delete</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      {% include 'include/footer.html' %}
+      <!-- .yoo-card -->
+
+    </div>
+    <!-- .yoo-content -->
+    <script>
+      document.querySelector(".yoo-uikits-title").textContent = "Danh sách thiết bị";
+      // Get the modal
+      var modal = document.getElementById('id01');
+
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function (event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+
+      122
+
+      $(document).ready(function () {
+        $('#ipn_search').keypress(function (e) {
+          if (e.keyCode == 13) {
+            Search();
+          }
+        });
+        $('.hwid').keypress(function (e) {
+          if (e.keyCode == 13) {
+            console.log("1234")
+          }
+        });
+      });
+      var search = window.location.search;
+      var pages = Regex(search, /page=(\d+)/)
+      if (pages != null && pages.length > 1) {
+        GetFile(pages[1])
+      } else {
+        GetFile("1")
+      }
+      function Search() {
+        var search = $("#ipn_search").val()
+        if (search == "") {
+          GetFile("1")
+          return
+        }
+        $.ajax({
+          url: "/devicesearch/" + search,
+          type: "get",
+          beforeSend: function (request) {
+            request.setRequestHeader("Authorization", "Bearer " + window.localStorage.token);
+          },
+          dataType: "text",
+          success: function (results) {
+            const obj = JSON.parse(results);
+            var max = obj.max;
+            var count = obj.count
+            var pagedu = count % max
+            if (pagedu != 0) {
+              pagedu = 1
+            }
+            var countpage = count / max + pagedu
+            var result = obj.result;
+            var stringToRender = ""
+            var paginations = `<ul class="pagination pagination-lg">`
+
+            var pageshow = pagination(page, countpage)
+
+
+            for (let i = 0; i < pageshow.length; i++) {
+              var pageht = pageshow[i]
+              if (pageht == page || pageht == "...") {
+                paginations = paginations +
+                  `<li class="page-item disabled"><a class="page-link" href="#" tabindex="-1">${pageht}</a></li>`
+              } else {
+                paginations = paginations +
+                  `<li class="page-item"><a class="page-link" href="${window.location.pathname}?page=${pageht}">${pageht}</a></li>`
+              }
+            }
+            paginations = paginations + `</ul>`
+
+            for (let i = 0; i < result.length; i++) {
+              const onePost = result[i];
+              // console.log(onePost)
+              stringToRender +=
+                `<tr id="${onePost.id}"><td>${i + 1}</td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.device}"></td><td style="width:10%;"><input onkeypress='UpdateEnter(event, "${onePost.id}");' type="text" style="width:100%;" value="${onePost.proxy}"></td><td><input type="text" style="width:100%;" value="${onePost.firstmail}"></td><td><input type="text" style="width:100%;" value="${onePost.namemail}"></td><td><input type="text" value="${onePost.time}"></td><td><a nohref style='cursor:pointer;color:blue;text-decoration:underline' onClick='Del("${onePost.id}");'>Xóa</a> | <a nohref style='cursor:pointer;color:blue;text-decoration:underline' onClick='Update("${onePost.id}");'>Update</a></td>`;
+            }
+
+            $("#files").html(stringToRender);
+            $("#page").html(paginations);
+
+          },
+          error: function (results) {
+            window.location.href = "login.html"
+            return
+          }
+        });
+      }
+      function GetFile(page) {
+        $.ajax({
+          url: "/loaddevice/" + page,
+          type: "get",
+          beforeSend: function (request) {
+            request.setRequestHeader("Authorization", "Bearer " + window.localStorage.token);
+          },
+          dataType: "text",
+          success: function (results) {
+            const obj = JSON.parse(results);
+            var max = obj.max;
+            var count = obj.count
+            var pagedu = count % max
+            if (pagedu != 0) {
+              pagedu = 1
+            }
+            var countpage = count / max + pagedu
+            var result = obj.result;
+            var stringToRender = ""
+            var paginations = `<ul class="pagination pagination-lg">`
+
+            var pageshow = pagination(page, countpage)
+
+
+            for (let i = 0; i < pageshow.length; i++) {
+              var pageht = pageshow[i]
+              if (pageht == page || pageht == "...") {
+                paginations = paginations +
+                  `<li class="page-item disabled"><a class="page-link" href="#" tabindex="-1">${pageht}</a></li>`
+              } else {
+                paginations = paginations +
+                  `<li class="page-item"><a class="page-link" href="${window.location.pathname}?page=${pageht}">${pageht}</a></li>`
+              }
+            }
+            paginations = paginations + `</ul>`
+
+            for (let i = 0; i < result.length; i++) {
+              const onePost = result[i];
+              //  console.log(onePost)
+              stringToRender +=
+                `<tr id="${onePost.id}"><td>${i + 1}</td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.device}"></td><td style="width:10%;"><input onkeypress='UpdateEnter(event, "${onePost.id}");' type="text" style="width:100%;" value="${onePost.proxy}"></td><td><input type="text" style="width:100%;" value="${onePost.firstmail}"></td><td><input type="text" style="width:100%;" value="${onePost.namemail}"></td><td><input type="text" value="${onePost.time}"></td><td><a nohref style='cursor:pointer;color:blue;text-decoration:underline' onClick='Del("${onePost.id}");'>Xóa</a> | <a nohref style='cursor:pointer;color:blue;text-decoration:underline' onClick='Update("${onePost.id}");'>Update</a></td>`;
+            }
+
+            $("#files").html(stringToRender);
+            $("#page").html(paginations);
+            $("#countmail").html("<b>(" + count + ")</b>");
+            $('input[value="undefined"]').val("");
+
+          },
+          error: function (results) {
+            window.location.href = "login.html"
+            return
+          }
+        });
+      }
+
+      function Del(id) {
+        var r = confirm("Xác nhận xóa!");
+        if (r !== true) {
+          return
+        }
+        $.ajax({
+          url: "/devicedelete/" + id,
+          type: "get",
+          beforeSend: function (request) {
+            request.setRequestHeader("Authorization", "Bearer " + window.localStorage.token);
+          },
+          dataType: "text",
+          success: function (results) {
+            const obj = JSON.parse(results);
+            var result = obj.mess;
+            if (result == "success") {
+              toastr.success("Xóa thành công");
+              location.reload();
+            } else {
+              toastr.error(result);
+            }
+          }
+        });
+      }
+      function UpdateEnter(e, id) {
+        if (e.keyCode == 13) {
+          Update(id)
+          return
+        }
+      }
+      function Update(id) {
+        var r = confirm("Xác nhận cập nhật!");
+        if (r !== true) {
+          return
+        }
+        var select = document.querySelectorAll('tr[id="' + id + '"] > td')
+
+        var person = {
+          device: select[1].childNodes[0].value,
+          proxy: select[2].childNodes[0].value,
+          firstmail: select[3].childNodes[0].value,
+          namemail: select[4].childNodes[0].value,
+        }
+        $.ajax({
+          url: "/deviceedit/" + id,
+          type: "post",
+          dataType: "json",
+          beforeSend: function (request) {
+            request.setRequestHeader("Authorization", "Bearer " + window.localStorage.token);
+          },
+          data: JSON.stringify(person),
+          contentType: 'application/json',
+          success: function (result) {
+
+            // const obj = JSON.parse(result);
+            var msg = result.mess;
+
+            if (msg == "success") {
+              // $('#status').html(msg)
+              toastr.success("Cập nhật thành công");
+              // window.location.href = "/keymanager.html";
+              // var date = new Date("Februari 10, 2020");
+              // var dateString = date.toGMTString();
+              // var cookieString = result.split('|')[1] + dateString;
+
+              //location.reload();
+            } else {
+              // $('#status').html(msg)
+              toastr.error(msg);
+              // $("#status").html(result);
+            }
+          }
+        });
+      }
+
+    </script>
+    <!-- Required Scripts -->
+</body>
+
+</html>

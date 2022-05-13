@@ -1,0 +1,10 @@
+aes-everywhere
+pycryptodome
+pywin32
+requests
+fastapi
+uvicorn
+pyjwt
+Jinja2
+timestring
+wmi

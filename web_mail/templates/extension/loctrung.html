@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+{% include 'include/header.html' %}
+
+
+
+
+<script src="/static/assets/editor/editor.js"></script>
+
+
+
+<link href="/static/assets/editor/editor.css" type="text/css" rel="stylesheet" />
+
+<body>
+  <div class="yoo-height-b60 yoo-height-lg-b60"></div>
+  <div class="yoo-headersidebar-toggle">
+    <div class="yoo-button-bar1"></div>
+    <div class="yoo-button-bar2"></div>
+    <div class="yoo-button-bar3"></div>
+  </div>
+  <!-- .yoo-headersidebar-toggle -->
+  {% include 'include/headersidebar.html' %}
+
+  <div class="yoo-content yoo-style1">
+    <div class="yoo-height-b30 yoo-height-lg-b30"></div>
+    <div class="container-fluid">
+      <div class="yoo-uikits-heading">
+        <h2 class="yoo-uikits-title">Key upload</h2>
+      </div>
+    </div>
+    <div class="yoo-height-b30 yoo-height-lg-b30"></div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="yoo-card yoo-style1">
+            <div class="yoo-card-heading">
+              <div class="yoo-card-heading-left">
+                <h2 class="yoo-card-title">Data</h2>
+              </div>
+              <div class="yoo-card-heading-right btn-toolbar pull-right">
+                <div class="row">
+                  <button type="button" ripple="ripple" ripple-color="#fff" class="btn btn-secondary btn-sm"
+                    style="margin: 0px 2px 0px 0px;" id="del" onclick="$('#data1').val('');">Del</button>
+                  <button type="button" ripple="ripple" ripple-color="#fff" class="btn btn-primary btn-sm" id="copy"
+                    onclick="CopyTextareaToClipboard('data1')">Copy</button>
+                </div>
+              </div>
+            </div>
+            <div class="yoo-card-body">
+              <div class="yoo-padd-lr-20">
+                <div class="yoo-height-b20 yoo-height-lg-b20"></div>
+                <form>
+                  <div class="form-group level-up">
+                    <label for="exampleFormControlTextarea1"></label>
+                    <textarea class="form-control" style="max-height: none;" id="data1" rows="15"></textarea>
+                  </div>
+                </form>
+                <div class="yoo-height-b5 yoo-height-lg-b5"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="yoo-card yoo-style1">
+            <div class="yoo-card-heading">
+              <div class="yoo-card-heading-left">
+                <h2 class="yoo-card-title">Data All</h2>
+              </div>
+              <div class="yoo-card-heading-right btn-toolbar pull-right">
+                <div class="row">
+                  <button type="button" ripple="ripple" ripple-color="#fff" class="btn btn-secondary btn-sm"
+                    style="margin: 0px 2px 0px 0px;" id="del" onclick="$('#dataall').val('');">Del</button>
+                  <button type="button" ripple="ripple" ripple-color="#fff" class="btn btn-primary btn-sm" id="copy"
+                    onclick="CopyTextareaToClipboard('dataall')">Copy</button>
+                </div>
+              </div>
+            </div>
+            <div class="yoo-card-body">
+              <div class="yoo-padd-lr-20">
+                <div class="yoo-height-b20 yoo-height-lg-b20"></div>
+                <form>
+                  <div class="form-group level-up">
+                    <label for="exampleFormControlTextarea1"></label>
+                    <textarea class="form-control" style="max-height: none;" id="dataall" rows="15"></textarea>
+                  </div>
+                </form>
+                <div class="yoo-height-b5 yoo-height-lg-b5"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br><button type="button" ripple="ripple" ripple-color="#fff" class="btn btn-primary btn-lg"
+        onclick="loc(event)">Lọc</button>
+      <div class="yoo-height-b30 yoo-height-lg-b30"></div>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="yoo-card yoo-style1">
+            <div class="yoo-card-heading">
+              <div class="yoo-card-heading-left">
+                <h2 class="yoo-card-title">Trùng</h2>
+              </div>
+              <div class="yoo-card-heading-right btn-toolbar pull-right">
+                <div class="row">
+                  <button type="button" ripple="ripple" ripple-color="#fff" class="btn btn-secondary btn-sm"
+                    style="margin: 0px 2px 0px 0px;" id="del" onclick="$('#trung').val('');">Del</button>
+                  <button type="button" ripple="ripple" ripple-color="#fff" class="btn btn-primary btn-sm" id="copy"
+                    onclick="CopyTextareaToClipboard('trung')">Copy</button>
+                </div>
+              </div>
+            </div>
+            <div class="yoo-card-body">
+              <div class="yoo-padd-lr-20">
+                <div class="yoo-height-b20 yoo-height-lg-b20"></div>
+                <form>
+                  <div class="form-group level-up">
+                    <label for="exampleFormControlTextarea1"></label>
+                    <textarea class="form-control" style="max-height: none;" id="trung" rows="15"></textarea>
+                  </div>
+                </form>
+                <div class="yoo-height-b5 yoo-height-lg-b5"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="yoo-card yoo-style1">
+            <div class="yoo-card-heading">
+              <div class="yoo-card-heading-left">
+                <h2 class="yoo-card-title">Không trùng</h2>
+              </div>
+              <div class="yoo-card-heading-right btn-toolbar pull-right">
+                <div class="row">
+                  <button type="button" ripple="ripple" ripple-color="#fff" class="btn btn-secondary btn-sm"
+                    style="margin: 0px 2px 0px 0px;" id="del" onclick="$('#khongtrung').val('');">Del</button>
+                  <button type="button" ripple="ripple" ripple-color="#fff" class="btn btn-primary btn-sm" id="copy"
+                    onclick="CopyTextareaToClipboard('khongtrung')">Copy</button>
+                </div>
+              </div>
+            </div>
+            <div class="yoo-card-body">
+              <div class="yoo-padd-lr-20">
+                <div class="yoo-height-b20 yoo-height-lg-b20"></div>
+                <form>
+                  <div class="form-group level-up">
+                    <label for="exampleFormControlTextarea1"></label>
+                    <textarea class="form-control" style="max-height: none;" id="khongtrung" rows="15"></textarea>
+                  </div>
+                </form>
+                <div class="yoo-height-b5 yoo-height-lg-b5"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- .yoo-card -->
+      <div class="yoo-height-b30 yoo-height-lg-b30"></div>
+
+      <!-- .yoo-card -->
+      {% include 'include/footer.html' %}
+
+    </div>
+    <!-- .yoo-content -->
+    <script>
+      document.querySelector(".yoo-uikits-title").textContent = "Thêm key";
+      GetAllApp()
+
+      function GetAllApp() {
+        $.ajax({
+          url: "/key/getallapp",
+          type: "get",
+          dataType: "text",
+          beforeSend: function (request) {
+            request.setRequestHeader("Authorization", "Bearer " + window.localStorage.token);
+          },
+          success: function (results) {
+            const obj = JSON.parse(results);
+
+
+            var stringToRender = ""
+
+            for (let i = 0; i < obj.length; i++) {
+              const onePost = obj[i];
+              stringToRender += `<option>${onePost.name}</option>`
+            }
+
+            $("#txttenapp").html(stringToRender);
+
+          }
+        });
+      }
+
+
+
+      function loc() {
+        data1 = $("#data1").val();
+        dataall = $("#dataall").val();
+        const list1 = data1.split(/\r|\n/)
+        const listall = dataall.split(/\r|\n/)
+        let res = Filter(list1, listall);
+        $("#trung").val(res.sell.join('\r\n'));
+        $("#khongtrung").val(res.notSell.join('\r\n'));
+
+        let res2 = CountDouble(res.sell);
+        console.log(res2);
+      }
+      function Filter2(a, b) {
+        let set = new Set(a);
+        return b.filter((el) => !set.has(el));
+      }
+      function CountDouble(arr) {
+        let o = {};
+        for (let i = 0; i < arr.length; i++) {
+          const nu = arr[i];
+          if (!o.hasOwnProperty(nu)) o[nu] = 1;
+          else o[nu]++;
+        }
+        let res = Object.keys(o)
+          .filter((num) => o[num] > 1)
+          .map((num) => `${num}|${o[num]}`)
+          .join("\r\n");
+        return res;
+      }
+
+      function Filter(sold, all) {
+        let soldSet = new Set(sold);
+        let notSell = all.filter((el) => !soldSet.has(el));
+        let sell = all.filter((el) => soldSet.has(el));
+        return { notSell, sell };
+      }
+    </script>
+
+    <!-- Required Scripts -->
+</body>
+
+</html>
