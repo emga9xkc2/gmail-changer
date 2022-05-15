@@ -20,7 +20,7 @@ Nếu muốn đổi lại email khôi phục 1 lần nữa. Hãy mở SETTINGS =
 
 <b>4. Thông tin phiên bản</b>
 
-- v4.5
+- v4.6
 
   Thêm chức năng gom lô mail. (vào web mail để sử dụng)<br>
   Thêm chức năng chạy theo danh sách lô mail, bấm WEB MAIL => LÔ MAIL => Nhập danh sách lô mail. Lô mail này được tạo ra trong lúc thêm mail trên web<br>
