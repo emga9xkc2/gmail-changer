@@ -24,6 +24,11 @@ VN<br>
 
 <b>4. Thông tin phiên bản</b>
 
+- v4.7
+
+  Fix lỗi check youtube<br>
+  Fix lỗi user32.dll<br>
+
 - v4.6
 
   Thêm chức năng gom lô mail. (vào web mail để sử dụng)<br>
