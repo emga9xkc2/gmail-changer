@@ -24,6 +24,10 @@ VN<br>
 
 <b>4. Thông tin phiên bản</b>
 
+- v4.9
+
+  Fix lỗi lấy thông tin youtube<br>
+
 - v4.8
 
   Fix lỗi không hỗ trợ chrome 102<br>
