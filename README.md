@@ -25,7 +25,6 @@ VN<br>
 <b>4. Thông tin phiên bản</b>
 
 - v5.0
-
   Fix lỗi lấy thông tin youtube<br>
 
 - v4.8
