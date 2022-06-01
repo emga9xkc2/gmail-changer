@@ -25,9 +25,11 @@ VN<br>
 <b>4. Thông tin phiên bản</b>
 
 - v5.1
+
   Hỗ trợ vpn ipvanish bản mới<br>
 
 - v5.0
+
   Fix lỗi lấy thông tin youtube<br>
 
 - v4.8
