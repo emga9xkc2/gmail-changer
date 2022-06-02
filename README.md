@@ -22,9 +22,9 @@ Nếu muốn đổi lại email khôi phục 1 lần nữa. Hãy mở SETTINGS =
 
 [x] XÓA MAIL<br>
 
-3. Xuất ra mail<br>
-4. Copy mail cần xóa ở file xuất<br>
-5. Vào menu chọn Xóa mail. Dán các mail vừa copy vào rồi ấn xóa<br>
+1. Xuất ra mail<br>
+2. Copy mail cần xóa ở file xuất<br>
+3. Vào menu chọn Xóa mail. Dán các mail vừa copy vào rồi ấn xóa<br>
 
 <b>Cài đặt thêm</b>
 
