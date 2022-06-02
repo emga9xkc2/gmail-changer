@@ -19,7 +19,8 @@ Nếu muốn đổi lại email khôi phục 1 lần nữa. Hãy mở SETTINGS =
 2. Mở SETTING => PROXY => 911. Nhập danh sách quốc gia cần random vào. mỗi quốc gia 1 dòng. Ví dụ:<br>
    US<br>
    VN<br>
-   [x] XÓA MAIL<br>
+
+[x] XÓA MAIL<br>
 
 3. Xuất ra mail<br>
 4. Copy mail cần xóa ở file xuất<br>
