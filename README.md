@@ -17,6 +17,11 @@ Nếu muốn đổi lại email khôi phục 1 lần nữa. Hãy mở SETTINGS =
 Tải 911 về máy, đăng nhập tk mk. Mở SETTING => PROXY => 911. Nhập danh sách quốc gia cần random vào. mỗi quốc gia 1 dòng. Ví dụ:<br>
 US<br>
 VN<br>
+[x] XÓA MAIL<br>
+
+1. Xuất ra mail<br>
+2. Copy mail cần xóa ở file xuất<br>
+3. Vào menu chọn Xóa mail. Dán các mail vừa copy vào rồi ấn xóa<br>
 
 <b>Cài đặt thêm</b>
 
