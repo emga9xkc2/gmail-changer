@@ -13,7 +13,7 @@ https://github.com/emga9xkc2/gmail-changer/archive/refs/heads/main.zip
 [x] Tool chỉ đổi mật khẩu và email khôi phục, mỗi nick 1 lần.<br>
 Nếu muốn đổi lại mật khẩu 1 lần nữa. Hãy mở SETTINGS => PASSWORD KEY => đổi các ký tự trong đó thành 4 ký tự khác<br>
 Nếu muốn đổi lại email khôi phục 1 lần nữa. Hãy mở SETTINGS => EMAIL RECOVERY DOMAIN => đổi các ký tự trong đó thành 5 ký tự khác kèm @outlook.com<br>
-[x] Cách change ip = 911<br>
+[x] CHANGE IP = 911<br>
 Tải 911 về máy, đăng nhập tk mk. Mở SETTING => PROXY => 911. Nhập danh sách quốc gia cần random vào. mỗi quốc gia 1 dòng. Ví dụ:<br>
 US<br>
 VN<br>
