@@ -14,14 +14,16 @@ https://github.com/emga9xkc2/gmail-changer/archive/refs/heads/main.zip
 Nếu muốn đổi lại mật khẩu 1 lần nữa. Hãy mở SETTINGS => PASSWORD KEY => đổi các ký tự trong đó thành 4 ký tự khác<br>
 Nếu muốn đổi lại email khôi phục 1 lần nữa. Hãy mở SETTINGS => EMAIL RECOVERY DOMAIN => đổi các ký tự trong đó thành 5 ký tự khác kèm @outlook.com<br>
 [x] CHANGE IP = 911<br>
-Tải 911 về máy, đăng nhập tk mk. Mở SETTING => PROXY => 911. Nhập danh sách quốc gia cần random vào. mỗi quốc gia 1 dòng. Ví dụ:<br>
-US<br>
-VN<br>
-[x] XÓA MAIL<br>
 
-1. Xuất ra mail<br>
-2. Copy mail cần xóa ở file xuất<br>
-3. Vào menu chọn Xóa mail. Dán các mail vừa copy vào rồi ấn xóa<br>
+1. Tải 911 về máy, đăng nhập tk mk.
+2. Mở SETTING => PROXY => 911. Nhập danh sách quốc gia cần random vào. mỗi quốc gia 1 dòng. Ví dụ:<br>
+   US<br>
+   VN<br>
+   [x] XÓA MAIL<br>
+
+3. Xuất ra mail<br>
+4. Copy mail cần xóa ở file xuất<br>
+5. Vào menu chọn Xóa mail. Dán các mail vừa copy vào rồi ấn xóa<br>
 
 <b>Cài đặt thêm</b>
 
