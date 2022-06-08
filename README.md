@@ -28,7 +28,7 @@ Nếu muốn đổi lại email khôi phục 1 lần nữa. Hãy mở SETTINGS =
 
 [x] VERIFY PHONE<br>
 
-1. Để dùng verify phone. Bấm settings => verify phone. Nhập định dạng như mẫu. ví dụ: https://tempcode.co/api/orders.php | xxxxx | 1<br>
+1. Để dùng verify phone. Bấm settings => verify phone. Nhập định dạng như mẫu. (xxxxx là api key lấy ở web sim) ví dụ: https://tempcode.co/api/orders.php | xxxxx | 1<br>
 2. Tích chọn verify phone trên giao diện<br>
 3. Để cài đặt thời gian đợi code. Bấm HELP => OPEN HCONFIG. Thêm dòng này vào cuối rồi lưu lại: otptimeout = 60<br>
 4. Để cài đặt số lần thử lại trên 1 số. Bấm HELP => OPEN HCONFIG. Thêm dòng này vào cuối rồi lưu lại: solanverify1so = 3<br>
