@@ -26,6 +26,13 @@ Nếu muốn đổi lại email khôi phục 1 lần nữa. Hãy mở SETTINGS =
 2. Copy mail cần xóa ở file xuất<br>
 3. Vào menu chọn Xóa mail. Dán các mail vừa copy vào rồi ấn xóa<br>
 
+[x] VERIFY PHONE<br>
+
+1. Để dùng verify phone. Bấm settings => verify phone. Nhập định dạng như mẫu. ví dụ: https://tempcode.co/api/orders.php | xxxxx | 1<br>
+2. Tích chọn verify phone trên giao diện<br>
+3. Để cài đặt thời gian đợi code. Bấm HELP => OPEN HCONFIG. Thêm dòng này vào cuối rồi lưu lại: otptimeout = 60<br>
+4. Để cài đặt số lần thử lại trên 1 số. Bấm HELP => OPEN HCONFIG. Thêm dòng này vào cuối rồi lưu lại: solanverify1so = 3<br>
+
 <b>Cài đặt thêm</b>
 
 - Nếu change ip bằng vpn hoặc dcom thì cài thêm phần mềm này: https://digi.bib.uni-mannheim.de/tesseract/tesseract-ocr-w64-setup-v5.0.1.20220118.exe
