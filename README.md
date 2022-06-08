@@ -32,6 +32,10 @@ Nếu muốn đổi lại email khôi phục 1 lần nữa. Hãy mở SETTINGS =
 
 <b>4. Thông tin phiên bản</b>
 
+- v5.2
+
+  Bỏ qua nick không verify được<br>
+
 - v5.1
 
   Hỗ trợ vpn ipvanish bản mới<br>
