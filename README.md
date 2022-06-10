@@ -33,11 +33,19 @@ Nếu muốn đổi lại email khôi phục 1 lần nữa. Hãy mở SETTINGS =
 3. Để cài đặt thời gian đợi code. Bấm HELP => OPEN HCONFIG. Thêm dòng này vào cuối rồi lưu lại: otptimeout = 60<br>
 4. Để cài đặt số lần thử lại trên 1 số. Bấm HELP => OPEN HCONFIG. Thêm dòng này vào cuối rồi lưu lại: solanverify1so = 3<br>
 
+[x] USER AGENT<br>
+
+1. Để random user agent theo ý muốn. Bấm settings => chọn User agent => Điền danh sách user agent cần random vào<br>
+
 <b>Cài đặt thêm</b>
 
 - Nếu change ip bằng vpn hoặc dcom thì cài thêm phần mềm này: https://digi.bib.uni-mannheim.de/tesseract/tesseract-ocr-w64-setup-v5.0.1.20220118.exe
 
 <b>4. Thông tin phiên bản</b>
+
+- v5.4
+
+  Thêm chức năng cài user agent<br>
 
 - v5.3
 
