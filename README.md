@@ -41,6 +41,10 @@ Nếu muốn đổi lại email khôi phục 1 lần nữa. Hãy mở SETTINGS =
 
 - v5.3
 
+  Sửa lỗi đăng nhập bị báo codephone<br>
+
+- v5.2
+
   Sửa lỗi verify phone<br>
 
 - v5.1
