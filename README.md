@@ -43,6 +43,10 @@ Nếu muốn đổi lại email khôi phục 1 lần nữa. Hãy mở SETTINGS =
 
 <b>4. Thông tin phiên bản</b>
 
+- v5.5
+
+  Thay đổi thông tin chrome, tránh die mail<br>
+
 - v5.4
 
   Thêm chức năng cài user agent<br>
