@@ -43,6 +43,13 @@ Nếu muốn đổi lại email khôi phục 1 lần nữa. Hãy mở SETTINGS =
 
 <b>4. Thông tin phiên bản</b>
 
+- v5.7
+
+  Sửa lỗi tạo kênh youtube<br>
+  Sửa lỗi lấy danh sách kênh youtube<br>
+  Tắt hỏi lưu pass khi đăng nhập ở chrome<br>
+  Tắt cửa sổ hỏi cài extension ở chrome<br>
+
 - v5.6
 
   Sửa lỗi không lấy được mail gốc<br>
