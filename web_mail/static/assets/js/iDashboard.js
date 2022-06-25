@@ -21,7 +21,7 @@
     checkMark();
     formField();
     stickyFooter();
-    nicescrollInt();
+    // nicescrollInt();
     calendarInt();
     //chattingToggle();
   });
@@ -232,9 +232,9 @@
   /*--------------------------------------------------------------
     7. Nice Scroll
   --------------------------------------------------------------*/
-  function nicescrollInt() {
-    Scrollbar.initAll();
-  }
+  // function nicescrollInt() {
+  //   Scrollbar.initAll();
+  // }
 
   /*--------------------------------------------------------------
     8. Calendar

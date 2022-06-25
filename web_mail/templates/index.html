@@ -300,7 +300,9 @@
                         </g>
                       </g>
                     </g>
-                  </svg><input autocomplete="off" placeholder="Tìm kiếm" id="ipn_search" value="">
+                  </svg><input autocomplete="off"
+                    placeholder="Tìm kiếm. Định dạng: key~value. Ví dụ: email~abcxyz@gmail.com hoặc status~LoginOk"
+                    id="ipn_search" value="">
                 </div>
               </div>
               <b><span class="" id="liveverify" style="color:blue; margin-top : 20px ; padding:0 ;"></span></b>
@@ -323,27 +325,8 @@
                 <div class="yoo-height-b20 yoo-height-lg-b20"></div>
                 <table class="table table-bordered">
                   <thead>
-                    <tr>
-                      <th scope="col" width="2%">#</th>
-                      <th scope="col" width="5%">email</th>
-                      <th scope="col" width="5%">password</th>
-                      <th scope="col" width="5%">emailrecovery</th>
-                      <th scope="col" width="5%">status</th>
-                      <th scope="col" width="5%">youtube</th>
-                      <th scope="col" width="5%">birthday</th>
-                      <th scope="col" width="5%">phonerecovery</th>
-                      <th scope="col" width="5%">country</th>
-                      <th scope="col" width="5%">googleadw</th>
-                      <th scope="col" width="5%">googleadsense</th>
-                      <th scope="col" width="5%">chplay</th>
-                      <th scope="col" width="5%">paymentmethod</th>
-                      <th scope="col" width="5%">googlevoice</th>
-                      <th scope="col" width="5%">groups</th>
-                      <th scope="col" width="5%">datecreate</th>
-                      <th scope="col" width="5%">updater</th>
-                      <th scope="col" width="5%">proxy</th>
-                      <th scope="col" width="5%">proxylist</th>
-                      <th scope="col" width="5%">#</th>
+                    <tr id="column">
+
                     </tr>
                   </thead>
                   <tbody id="files"></tbody>
@@ -393,91 +376,7 @@
           }
         });
       });
-      function Search(page) {
-        var search = $("#ipn_search").val()
-        if (search == "") {
-          loadMail("1")
-          return
-        }
-        $.ajax({
-          url: "/mailsearch/" + search + "?page=" + page,
-          type: "get",
-          beforeSend: function (request) {
-            request.setRequestHeader("Authorization", "Bearer " + window.localStorage.token);
-          },
-          dataType: "text",
-          success: function (results) {
-            const obj = JSON.parse(results);
-            var max = obj.max;
-            var count = obj.count
-            var pagedu = count % max
-            if (pagedu != 0) {
-              pagedu = 1
-            }
-            var countpage = count / max + pagedu
-            var result = obj.result;
-            var stringToRender = ""
-            var paginations = `<ul class="pagination pagination-lg">`
 
-            var pageshow = pagination(page, countpage)
-
-
-            for (let i = 0; i < pageshow.length; i++) {
-              var pageht = pageshow[i]
-              if (pageht == page || pageht == "...") {
-                paginations = paginations +
-                  `<li class="page-item disabled"><a class="page-link" href="#" tabindex="-1">${pageht}</a></li>`
-              } else {
-                paginations = paginations +
-                  // `<li class="page-item"><a class="page-link" href="${window.location.pathname}?page=${pageht}">${pageht}</a></li>`
-                  `<li class="page-item"><a class="page-link" style="color:blue" onclick="Search(${pageht})">${pageht}</a></li>`
-              }
-            }
-            // paginations = paginations + `</ul>`
-
-            // for (let i = 0; i < result.length; i++) {
-            //   const onePost = result[i];
-            //   //  console.log(onePost)
-            //   stringToRender +=
-            //     `<tr id="${onePost.id}"><td>${i + 1}</td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.email}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.password}"></td><td><input type="text" style="width:100%;" value="${onePost.emailrecovery}"></td><td><input type="text" value="${onePost.status}"></td><td><input type="text" value="${onePost.birthday}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.phonerecovery}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.groups}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.datecreate}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.updater}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.proxy}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.proxylist}"></td><td><a nohref style='cursor:pointer;color:blue;text-decoration:underline' onClick='Del("${onePost.id}");'>Xóa</a> | <a nohref style='cursor:pointer;color:blue;text-decoration:underline' onClick='Update("${onePost.id}");'>Update</a></td>`;
-            // }
-
-            // $("#files").html(stringToRender);
-            // $("#page").html(paginations);
-            // $("#countmail").html("" + count + "");
-            // $('input[value="undefined"]').val("");
-            paginations = paginations + `</ul>`
-            let verify = 0;
-            let x = 0;
-            for (let i = 0; i < result.length; i++) {
-              x = x + 1
-              const onePost = result[i];
-              if (Contains(onePost.status, "Verify") == true || Contains(onePost.status, "Disable") == true) {
-                verify = verify + 1;
-              }
-              //  console.log(onePost)
-              stringToRender +=
-                `<tr id="${onePost.id}"><td>${i + 1}</td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.email}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.password}"></td><td><input type="text" style="width:100%;" value="${onePost.emailrecovery}"></td><td><input type="text" value="${onePost.status}"></td><td><input type="text" style="width:100%;" value="${onePost.youtube}"></td><td><input type="text" value="${onePost.birthday}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.phonerecovery}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.country}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.googleadw}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.googleadsense}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.chplay}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.paymentmethod}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.googlevoice}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.groups}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.datecreate}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.updater}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.proxy}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.proxylist}"></td><td><a nohref style='cursor:pointer;color:blue;text-decoration:underline' onClick='Del("${onePost.id}");'>Xóa</a> | <a nohref style='cursor:pointer;color:blue;text-decoration:underline' onClick='Update("${onePost.id}");'>Update</a></td>`;
-            }
-            let tileveri = Math.ceil(verify / x * 100)
-            let tilelive = 100 - tileveri
-            $("#files").html(stringToRender);
-            $("#page").html(paginations);
-            $("#countmail").html("" + count + "");
-            $("#liveverify").html("<span>&#9758;	</span>Verify: " + verify + " (" + tileveri + "%) <span>&#10159;</span> Live: " + (x - verify) + " (" + tilelive + "%)");
-            $('input[value="undefined"]').val("");
-            // $('tr > *:nth-child(7)').hide();
-            // $('tr > *:nth-child(8)').hide();
-            // $('tr > *:nth-child(10)').hide();
-            // $('tr > *:nth-child(13)').hide();
-
-          },
-          error: function (results) {
-            window.location.href = "login.html"
-            return
-          }
-        });
-      }
 
       function Xuat() {
         var list = document.querySelectorAll("tr")
@@ -534,9 +433,41 @@
       $("#groups").on("change", function (e) {
         getDateByGroups();
       });
-
+      var showTable = []
       getGroups()
+      function createTable() {
+        var json = httpGetJson("getcolumnshow", "Bearer " + window.localStorage.token)
+        showTable = json.data;
+        // <th scope="col" width="2%">#</th>
+        //               <th scope="col" width="5%">email</th>
+        //               <th scope="col" width="5%">password</th>
+        //               <th scope="col" width="5%">emailrecovery</th>
+        //               <th scope="col" width="5%">status</th>
+        //               <th scope="col" width="5%">youtube</th>
+        //               <th scope="col" width="5%">birthday</th>
+        //               <th scope="col" width="5%">phonerecovery</th>
+        //               <th scope="col" width="5%">country</th>
+        //               <th scope="col" width="5%">googleadw</th>
+        //               <th scope="col" width="5%">googleadsense</th>
+        //               <th scope="col" width="5%">chplay</th>
+        //               <th scope="col" width="5%">paymentmethod</th>
+        //               <th scope="col" width="5%">googlevoice</th>
+        //               <th scope="col" width="5%">groups</th>
+        //               <th scope="col" width="5%">datecreate</th>
+        //               <th scope="col" width="5%">updater</th>
+        //               <th scope="col" width="5%">proxy</th>
+        //               <th scope="col" width="5%">proxylist</th>
+        //               <th scope="col" width="5%">#</th>
+        var render = `<th scope="col" width="1%">#</th>`;
 
+        for (let i = 1; i < showTable.length; i++) {
+          render = render + `<th scope="col" width="5%">${showTable[i]}</th>`
+          // console.log(render)
+        }
+        render = render + `<th scope="col" width="5%">#</th>`
+        setHtmlCssSelector('#column', render)
+      }
+      createTable()
 
       function getGroups() {
         $.ajax({
@@ -559,6 +490,7 @@
             }
             $("#groups").html(stringToRender);
             getDateByGroups();
+
           },
           error: function (results) {
             window.location.href = "login.html"
@@ -710,6 +642,10 @@
           dataType: "text",
           success: function (results) {
             const obj = JSON.parse(results);
+            if (obj.error) {
+              toastr.error(obj.mess);
+              return
+            }
             var max = obj.max;
             var count = obj.count
             var pagedu = count % max
@@ -745,10 +681,14 @@
               if (Contains(onePost.status, "Verify") == true || Contains(onePost.status, "Disable") == true) {
                 verify = verify + 1;
               }
-              console.log(onePost)
-              stringToRender +=
-                `<tr id="${onePost.id}"><td>${i + 1}</td><td><input type="text" style="width:100%;" value="${onePost.email}"></td><td><input type="text" style="width:100%;" value="${onePost.password}"></td><td><input type="text" style="width:100%;" value="${onePost.emailrecovery}"></td><td><input type="text" style="width:100%;" value="${onePost.status}"></td><td><input type="text" style="width:100%;" value="${onePost.youtube}"></td><td><input type="text" value="${onePost.birthday}"></td><td><input type="text" style="width:100%;" value="${onePost.phonerecovery}"></td><td><input type="text" style="width:100%;" value="${onePost.country}"></td><td><input type="text" style="width:100%;" value="${onePost.googleadw}"></td><td><input type="text" style="width:100%;" value="${onePost.googleadsense}"></td><td ><input type="text" style="width:100%;" value="${onePost.chplay}"></td><td><input type="text" style="width:100%;" value="${onePost.paymentmethod}"></td><td><input type="text" style="width:100%;" value="${onePost.googlevoice}"></td><td><input type="text" style="width:100%;" value="${onePost.groups}"></td><td><input type="text" style="width:100%;" value="${onePost.datecreate}"></td><td><input type="text" style="width:100%;" value="${onePost.updater}"></td><td><input type="text" style="width:100%;" value="${onePost.proxy}"></td><td><input type="text" style="width:100%;" value="${onePost.proxylist}"></td><td><a nohref style='cursor:pointer;color:blue;text-decoration:underline' onClick='Del("${onePost.id}");'>Xóa</a> | <a nohref style='cursor:pointer;color:blue;text-decoration:underline' onClick='Update("${onePost.id}");'>Update</a></td>`;
-              // `<tr id="${onePost.id}"><td>${i + 1}</td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.email}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.password}"></td><td><input type="text" style="width:100%;" value="${onePost.emailrecovery}"></td><td><input type="text" value="${onePost.status}"></td><td><input type="text" value="${onePost.youtube}"></td><td><input type="text" value="${onePost.birthday}"></td><td><input type="text" value="${onePost.phonerecovery}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.country}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.googleadw}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.googleadsense}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.chplay}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.paymentmethod}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.googlevoice}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.groups}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.datecreate}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.updater}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.proxy}"></td><td style="width:10%;"><input type="text" style="width:100%;" value="${onePost.proxylist}"></td><td><a nohref style='cursor:pointer;color:blue;text-decoration:underline' onClick='Del("${onePost.id}");'>Xóa</a> | <a nohref style='cursor:pointer;color:blue;text-decoration:underline' onClick='Update("${onePost.id}");'>Update</a></td>`;
+              // console.log(onePost["id"])
+              var tr = `<tr id="${onePost.id}"><td>${x}</td>`
+              for (let z = 1; z < showTable.length; z++) {
+                var tencot = showTable[z]
+                tr = tr + `<td><input id="${tencot}_${onePost.id}" onkeypress='UpdateEnter(event, "${onePost.id}", "${tencot}");' type="text" style="width:100%;" value="${onePost[showTable[z]]}"></td>`
+              }
+              tr = tr + `<td><a nohref style='cursor:pointer;color:blue;text-decoration:underline' onClick='Del("${onePost.id}");'>Xóa</a></td></tr>`
+              stringToRender = stringToRender + tr
             }
             let tileveri = Math.ceil(verify / x * 100)
             let tilelive = 100 - tileveri
@@ -757,18 +697,91 @@
             $("#countmail").html("" + count + "");
             $("#liveverify").html("<span>&#9758;	</span>Verify: " + verify + " (" + tileveri + "%) <span>&#10159;</span> Live: " + (x - verify) + " (" + tilelive + "%)");
             $('input[value="undefined"]').val("");
-            $('tr > *:nth-child(7)').hide();
-            // $('tr > *:nth-child(8)').hide();
-            $('tr > *:nth-child(18)').hide();
-            $('tr > *:nth-child(19)').hide();
-          },
-          error: function (results) {
-            window.location.href = "login.html"
-            return
+            // $('tr > *:nth-child(7)').hide();
+
+            // $('tr > *:nth-child(18)').hide();
+            // $('tr > *:nth-child(19)').hide();
           }
         });
       }
+      function Search(page) {
+        var search = $("#ipn_search").val()
+        if (search == "") {
+          loadMail("1")
+          return
+        }
+        $.ajax({
+          url: "/mailsearch?search=" + search + "&page=" + page,
+          type: "get",
+          beforeSend: function (request) {
+            request.setRequestHeader("Authorization", "Bearer " + window.localStorage.token);
+          },
+          dataType: "text",
+          success: function (results) {
+            const obj = JSON.parse(results);
+            if (obj.error) {
+              toastr.error(obj.mess);
+              return
+            }
 
+            var max = obj.max;
+            var count = obj.count
+            var pagedu = count % max
+            if (pagedu != 0) {
+              pagedu = 1
+            }
+            var countpage = count / max + pagedu
+            var result = obj.result;
+            var stringToRender = ""
+            var paginations = `<ul class="pagination pagination-lg">`
+
+            var pageshow = pagination(page, countpage)
+
+
+            for (let i = 0; i < pageshow.length; i++) {
+              var pageht = pageshow[i]
+              if (pageht == page || pageht == "...") {
+                paginations = paginations +
+                  `<li class="page-item disabled"><a class="page-link" href="#" tabindex="-1">${pageht}</a></li>`
+              } else {
+                paginations = paginations +
+                  // `<li class="page-item"><a class="page-link" href="${window.location.pathname}?page=${pageht}">${pageht}</a></li>`
+                  `<li class="page-item"><a class="page-link" style="color:blue" onclick="Search(${pageht})">${pageht}</a></li>`
+              }
+            }
+            paginations = paginations + `</ul>`
+            let verify = 0;
+            let x = 0;
+            for (let i = 0; i < result.length; i++) {
+              x = x + 1
+              const onePost = result[i];
+              if (Contains(onePost.status, "Verify") == true || Contains(onePost.status, "Disable") == true) {
+                verify = verify + 1;
+              }
+              // console.log(onePost["id"])
+              var tr = `<tr id="${onePost.id}"><td>${x}</td>`
+              for (let z = 1; z < showTable.length; z++) {
+                var tencot = showTable[z]
+                tr = tr + `<td><input id="${tencot}_${onePost.id}" onkeypress='UpdateEnter(event, "${onePost.id}", "${tencot}");' type="text" style="width:100%;" value="${onePost[showTable[z]]}"></td>`
+              }
+              tr = tr + `<td><a nohref style='cursor:pointer;color:blue;text-decoration:underline' onClick='Del("${onePost.id}");'>Xóa</a></td></tr>`
+              stringToRender = stringToRender + tr
+            }
+            let tileveri = Math.ceil(verify / x * 100)
+            let tilelive = 100 - tileveri
+            $("#files").html(stringToRender);
+            $("#page").html(paginations);
+            $("#countmail").html("" + count + "");
+            $("#liveverify").html("<span>&#9758;	</span>Verify: " + verify + " (" + tileveri + "%) <span>&#10159;</span> Live: " + (x - verify) + " (" + tilelive + "%)");
+            $('input[value="undefined"]').val("");
+            // $('tr > *:nth-child(7)').hide();
+            // $('tr > *:nth-child(8)').hide();
+            // $('tr > *:nth-child(18)').hide();
+            // $('tr > *:nth-child(19)').hide();
+
+          }
+        });
+      }
       function xuatMail() {
         var oldexport = localStorage.getItem("oldexport")
         if (oldexport == null || oldexport == "") {
@@ -880,25 +893,22 @@
           }
         });
       }
-      function UpdateEnter(e, id) {
+      function UpdateEnter(e, id, column) {
         if (e.keyCode == 13) {
-          Update(id)
+          Update(id, column)
           return
         }
       }
-      function Update(id) {
-        var r = confirm("Xác nhận update!");
+      function Update(id, column) {
+        var r = confirm("Xác nhận update! " + column);
         if (r !== true) {
           return
         }
-        var select = document.querySelectorAll('tr[id="' + id + '"] > td')
-
-        var person = {
-          email: select[1].childNodes[0].value,
-          password: select[2].childNodes[0].value,
-          emailrecovery: select[3].childNodes[0].value,
-          status: select[4].childNodes[0].value,
-          datecreate: select[9].childNodes[0].value,
+        var idInput = column + "_" + id
+        var querySelector = document.querySelector('#' + idInput)
+        var value = querySelector.value;
+        var data = {
+          [column]: value,
         }
         $.ajax({
           url: "/mailedit/" + id,
@@ -907,7 +917,7 @@
           beforeSend: function (request) {
             request.setRequestHeader("Authorization", "Bearer " + window.localStorage.token);
           },
-          data: JSON.stringify(person),
+          data: JSON.stringify(data),
           contentType: 'application/json',
           success: function (result) {
 

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+{% include 'include/header.html' %}
+<style>
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body input {
+    border: none;
+  }
+
+  body input:focus {
+    outline: none;
+  }
+
+
+
+
+  /* Set a style for all buttons */
+  button {
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+  }
+
+  button:hover {
+    opacity: 1;
+  }
+
+  /* Float cancel and delete buttons and add an equal width */
+  .cancelbtn,
+  .deletebtn {
+    float: left;
+    width: 50%;
+  }
+
+  /* Add a color to the cancel button */
+  .cancelbtn {
+    background-color: #ccc;
+    color: black;
+  }
+
+  /* Add a color to the delete button */
+  .deletebtn {
+    background-color: #f44336;
+  }
+
+  /* Add padding and center-align text to the container */
+  .container {
+    padding: 16px;
+    text-align: center;
+  }
+
+  /* The Modal (background) */
+  .modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: #474e5d;
+    padding-top: 50px;
+  }
+
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto;
+    /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 80%;
+    /* Could be more or less, depending on screen size */
+  }
+
+  /* Style the horizontal ruler */
+  hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+  }
+
+  /* The Modal Close Button (x) */
+  .close {
+    position: absolute;
+    right: 35px;
+    top: 15px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #f1f1f1;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: #f44336;
+    cursor: pointer;
+  }
+
+  /* Clear floats */
+  .clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+  /* Change styles for cancel button and delete button on extra small screens */
+  @media screen and (max-width: 300px) {
+
+    .cancelbtn,
+    .deletebtn {
+      width: 100%;
+    }
+  }
+
+  .display_heading {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  ._1MmTVs {
+    padding: 12px 0;
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 5%);
+    color: #212121;
+    background: #eaeaea;
+    /* border-radius: 10px 10px 0 10px; */
+    border-radius: 10px;
+  }
+
+  .imagePrd {
+    border: 1px solid lightgray;
+    margin-left: 5px;
+    margin-right: 10px;
+  }
+
+  ._1MmTVs>input {
+    flex: 1;
+    font-size: 14px;
+    line-height: 16px;
+    border: 0;
+    outline: none;
+    background-color: inherit;
+  }
+
+  ._1MmTVs>svg {
+    margin: 0 15px;
+    stroke: #bbb;
+  }
+</style>
+
+<body>
+  <div class="yoo-height-b60 yoo-height-lg-b60"></div>
+  <div class="yoo-headersidebar-toggle">
+    <div class="yoo-button-bar1"></div>
+    <div class="yoo-button-bar2"></div>
+    <div class="yoo-button-bar3"></div>
+  </div>
+  <!-- .yoo-headersidebar-toggle -->
+  {% include 'include/headersidebar.html' %}
+
+  <div class="yoo-content yoo-style1">
+    <div class="yoo-height-b30 yoo-height-lg-b30"></div>
+    <div class="container-fluid">
+      <div class="yoo-uikits-heading">
+        <h2 class="yoo-uikits-title">Cài đặt</h2>
+      </div>
+    </div>
+    <div class="yoo-height-b30 yoo-height-lg-b30"></div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="yoo-card yoo-style1">
+
+            <div class="yoo-card-body">
+              <div class="yoo-padd-lr-20">
+                <div class="yoo-height-b20 yoo-height-lg-b20"></div>
+                <form>
+                  <label><b>Trạng thái cần chạy lại</b></label>
+                  <div class="form-group level-up">
+                    <textarea class="form-control" style="max-height: none;" id="chaylai" rows="6"
+                      placeholder="Nhập các trạng thái cần chạy lại, mỗi trạng thái 1 dòng. Ví dụ: Loading..."></textarea>
+                  </div>
+                  <label><b>Ẩn cột</b></label>
+                  <input class="form-control" id="ancot"
+                    placeholder="Nhập các cột cần ẩn, các nhau bởi dấu phẩy. ví dụ: proxy,proxylist"></input>
+
+                  <button type="button" ripple="ripple" ripple-color="#fff" class="btn btn-primary btn-lg"
+                    id="btnSave">Lưu lại</button>
+                  <br>
+                  <br>
+                </form>
+                <div class="yoo-height-b5 yoo-height-lg-b5"></div>
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
+
+      </div>
+      <br>
+
+      <!-- .yoo-card -->
+      <div class="yoo-height-b30 yoo-height-lg-b30"></div>
+
+
+      {% include 'include/footer.html' %}
+      <!-- .yoo-card -->
+
+    </div>
+    <!-- .yoo-content -->
+    <script>
+
+      // Get the modal
+
+
+
+
+      $("#btnSave").click(function (e) {
+        e.preventDefault();
+        var data = {
+          chaylai: $('#chaylai').val(),
+          ancot: $('#ancot').val()
+        }
+        $.ajax({
+          url: "luucaidat",
+          type: "post",
+          dataType: "json",
+          data: JSON.stringify(data),
+          beforeSend: function (request) {
+            request.setRequestHeader("Authorization", "Bearer " + window.localStorage.token);
+          },
+          contentType: 'application/json',
+          success: function (json) {
+            // const obj = JSON.parse(results);
+            var mess = json.mess;
+            if (mess == "success") {
+              toastr.success("Lưu lại thành công.");
+            } else {
+              toastr.success("Lưu lại thất bại " + mess);
+            }
+          }
+        });
+      });
+      function loadData() {
+        $('#input').val("Đang lấy dữ liệu cũ")
+        var json = httpGetJson("loadcaidat", "Bearer " + window.localStorage.token)
+        if (json.mess == "success") {
+          $('#chaylai').val(json.chaylai)
+          $('#ancot').val(json.ancot)
+        } else {
+          $('#chaylai').val("Lấy dữ liệu cũ bị lỗi")
+          $('#ancot').val("Lấy dữ liệu cũ bị lỗi")
+        }
+
+        // console.log(data)
+      }
+      loadData()
+
+
+    </script>
+    <!-- Required Scripts -->
+</body>
+
+</html>

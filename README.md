@@ -43,6 +43,11 @@ Nếu muốn đổi lại email khôi phục 1 lần nữa. Hãy mở SETTINGS =
 
 <b>4. Thông tin phiên bản</b>
 
+- v5.8
+
+  Sửa lại giao diện web<br>
+  Xuất mail sẽ thêm cột email cũ và pass cũ, tránh mất mail<br>
+
 - v5.7
 
   Sửa lỗi tạo kênh youtube<br>

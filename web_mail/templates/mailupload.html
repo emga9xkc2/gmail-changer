@@ -5,11 +5,11 @@
 
 {% include 'include/header.html' %}
 
-<script src="/assets/editor/editor.js"></script>
+<!-- <script src="/assets/editor/editor.js"></script> -->
 
 
 
-<link href="/assets/editor/editor.css" type="text/css" rel="stylesheet" />
+<!-- <link href="/assets/editor/editor.css" type="text/css" rel="stylesheet" /> -->
 
 <body>
   <div class="yoo-height-b60 yoo-height-lg-b60"></div>
@@ -57,9 +57,8 @@
                   </div>
                   <input type="text" id="txtlomail" class="form-control"
                     placeholder="Nhập lô mail (bỏ trống nếu không cần)"><br>
-                  <input type="checkbox" id="onlyaddemailpassemailrecovery"> Chỉ thêm
-                  email|pass|emailrecovery<br><button type="button" ripple="ripple" ripple-color="#fff"
-                    class="btn btn-primary btn-lg" onclick="them(event)">Thêm</button>
+                  <button type="button" ripple="ripple" ripple-color="#fff" class="btn btn-primary btn-lg"
+                    onclick="them(event)">Thêm</button>
                   <br>
                   <br>
                 </form>
@@ -92,7 +91,6 @@
         var person = {
           listmail: $('#input').val(),
           groups: $('#txtlomail').val(),
-          onlyaddemailpassemailrecovery: $('#onlyaddemailpassemailrecovery').is(":checked"),
         }
 
         $.ajax({
