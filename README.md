@@ -43,6 +43,10 @@ Nếu muốn đổi lại email khôi phục 1 lần nữa. Hãy mở SETTINGS =
 
 <b>4. Thông tin phiên bản</b>
 
+- v6.0
+
+  Sửa lỗi không đổi được email khôi phục và mật khẩu<br>
+
 - v5.9
 
   Sửa lỗi check date<br>
