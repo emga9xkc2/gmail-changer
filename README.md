@@ -43,6 +43,10 @@ Nếu muốn đổi lại email khôi phục 1 lần nữa. Hãy mở SETTINGS =
 
 <b>4. Thông tin phiên bản</b>
 
+- v5.9
+
+  Sửa lỗi check date<br>
+
 - v5.8
 
   Sửa lại giao diện web<br>
