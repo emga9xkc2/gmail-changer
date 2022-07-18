@@ -43,8 +43,9 @@ Nếu muốn đổi lại email khôi phục 1 lần nữa. Hãy mở SETTINGS =
 
 <b>4. Thông tin phiên bản</b>
 
-- v7.0
+- v6.1
 
+  Sửa lỗi không check được pttt<br>
   Sửa lỗi không check được ngày tạo mail<br>
 
 - v6.0
