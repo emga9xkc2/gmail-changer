@@ -9,6 +9,7 @@ Link download: https://www.python.org/ftp/python/3.9.9/python-3.9.9-amd64.exe
 https://github.com/emga9xkc2/gmail-changer/archive/refs/heads/main.zip
 
 <b>3. Hướng dẫn sử dụng</b>
+
 [x] Dành cho người mới sử dụng lần đầu<br>
 
 1. Mở tool. tích vào các ô chức năng cần sử dụng.<br>
