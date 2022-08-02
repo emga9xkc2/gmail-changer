@@ -18,3 +18,4 @@ httpx_socks
 httpx
 asyncio
 customtkinter
+redis
