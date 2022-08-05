@@ -12,11 +12,12 @@ https://github.com/emga9xkc2/gmail-changer/archive/refs/heads/main.zip
 
 [x] Dành cho người mới sử dụng lần đầu<br>
 
-1. Mở tool. tích vào các ô chức năng cần sử dụng.<br>
-2. Chọn proxy cần sử dụng<br>
-3. Ấn web mail. Tool sẽ tự mở 1 trang web trên trình duyệt. <br>
-4. Đăng nhập tk mk là admin admin, rồi vào phần thêm email, thêm email vào.<br>
-5. Quay lại tool bấm Chạy là xong<br>
+1. Mở tool. Bấm settings => Key active. nhập key vào lưu lại <br>
+2. Tích vào các ô chức năng cần sử dụng.<br>
+3. Chọn proxy cần sử dụng<br>
+4. Ấn web mail. Tool sẽ tự mở 1 trang web trên trình duyệt. <br>
+5. Đăng nhập tk mk là admin admin, rồi vào phần thêm email, thêm email vào.<br>
+6. Quay lại tool bấm Chạy là xong<br>
 
 [x] Tool chỉ đổi mật khẩu và email khôi phục, mỗi nick 1 lần.<br>
 Nếu muốn đổi lại mật khẩu 1 lần nữa. Hãy mở SETTINGS => PASSWORD KEY => đổi các ký tự trong đó thành 4 ký tự khác<br>
