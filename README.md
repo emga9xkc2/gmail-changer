@@ -14,7 +14,7 @@ https://github.com/emga9xkc2/gmail-changer/archive/refs/heads/main.zip
 
 1. Mở tool. Bấm settings => Key active. nhập key vào lưu lại <br>
 2. Tích vào các ô chức năng cần sử dụng.<br>
-3. Chọn proxy cần sử dụng<br>
+3. Chọn proxy cần sử dụng. Để thêm danh sách proxy hoặc nước vpn cần sử dụng. Chọn settings => proxy => list proxy hoặc vpn muốn dùng. điền danh sách proxy hoặc vpn vào rồi lưu lại<br>
 4. Ấn web mail. Tool sẽ tự mở 1 trang web trên trình duyệt. <br>
 5. Đăng nhập tk mk là admin admin, rồi vào phần thêm email, thêm email vào.<br>
 6. Quay lại tool bấm Chạy là xong<br>
