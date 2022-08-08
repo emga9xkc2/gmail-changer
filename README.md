@@ -31,9 +31,14 @@ Nếu muốn đổi lại email khôi phục 1 lần nữa. Hãy mở SETTINGS =
 
 [x] XÓA MAIL<br>
 
-1. Xuất ra mail<br>
-2. Copy mail cần xóa ở file xuất<br>
+1. Vào web xuất mail ra<br>
+2. Copy mail cần xóa ở file xuất, quan trọng nhất số ID cuối dòng, k được xóa đi<br>
 3. Vào menu chọn Xóa mail. Dán các mail vừa copy vào rồi ấn xóa<br>
+
+[x] KHÁNG MAIL<br>
+
+1. Tích vào ô Restore disable<br>
+2. Nếu muốn sửa nội dung kháng và mail nhận thư trả về của google thì Vào settings => restore disable => Chọn menu tương ứng.<br>
 
 [x] VERIFY PHONE<br>
 
