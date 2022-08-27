@@ -57,6 +57,10 @@ Nếu muốn đổi lại email khôi phục 1 lần nữa. Hãy mở SETTINGS =
 
 <b>4. Thông tin phiên bản</b>
 
+- v6.3
+
+  Fix quay lại dùng chrome<br>
+
 - v6.2
 
   Sửa lỗi không check được ngày tạo mail<br>
