@@ -1,10 +1,6 @@
-<b>1. Cài đặt python 3.9.9. Nhớ tích như hình bên dưới</b>
+<b>1. Giải nén và chạy file install python.bat trong thư mục setup.</b>
 
-Link download: https://www.python.org/ftp/python/3.9.9/python-3.9.9-amd64.exe
-
-<img src="setup/images/1.png"/>
-
-<b>2. Giải nén và chạy file setup.bat trong thư mục setup. Quay lại 1 bước. tìm file Gmail Changer mở nó lên là được</b>
+<b>2. Chạy file setup.bat trong thư mục setup. Quay lại 1 bước. tìm file Gmail Changer mở nó lên là được</b>
 
 https://github.com/emga9xkc2/gmail-changer/archive/refs/heads/main.zip
 
