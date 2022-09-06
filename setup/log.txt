@@ -1,3 +1,0 @@
-1/5/2022 3:20:48s => main.py: 3249 => name 'hfile' is not defined
-1/5/2022 3:25:28s => main.py: 3249 => name 'hfile' is not defined
-2/5/2022 2:24:20s => main.py: 3217 => list index out of range

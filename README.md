@@ -1,6 +1,6 @@
-<b>1. Giải nén và chạy file install python.bat trong thư mục setup.</b>
+<b>1. Giải nén và chạy file setup_python.bat trong thư mục setup. Đợi cài xong khoảng 1 vài phút</b>
 
-<b>2. Chạy file setup.bat trong thư mục setup. Quay lại 1 bước. tìm file Gmail Changer mở nó lên là được</b>
+<b>2. Chạy file setup_tool.bat trong thư mục setup. Quay lại 1 bước. tìm file Gmail Changer mở nó lên là được</b>
 
 https://github.com/emga9xkc2/gmail-changer/archive/refs/heads/main.zip
 
