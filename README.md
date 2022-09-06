@@ -53,6 +53,11 @@ Nếu muốn đổi lại email khôi phục 1 lần nữa. Hãy mở SETTINGS =
 
 <b>4. Thông tin phiên bản</b>
 
+- v6.4
+
+  Fix không nhận proxy<br>
+  Fix verify<br>
+
 - v6.3
 
   Fix quay lại dùng chrome<br>
