@@ -53,6 +53,10 @@ Nếu muốn đổi lại email khôi phục 1 lần nữa. Hãy mở SETTINGS =
 
 <b>4. Thông tin phiên bản</b>
 
+- v6.5
+
+  Thêm verify youtube<br>
+
 - v6.4
 
   Fix không nhận proxy<br>
