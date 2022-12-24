@@ -53,10 +53,6 @@ Nếu muốn đổi lại email khôi phục 1 lần nữa. Hãy mở SETTINGS =
 
 <b>4. Thông tin phiên bản</b>
 
-- v6.7
-
-  Thêm check 3 bước youtube<br>
-
 - v6.6
 
   Fix change email recovery<br>
