@@ -2,7 +2,6 @@ pywin32
 wmi
 requests
 timestring
-aes-everywhere
 pycryptodome
 fastapi
 uvicorn
