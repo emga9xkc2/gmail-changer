@@ -3,6 +3,7 @@ wmi
 requests
 timestring
 pycryptodome
+pycryptodomex
 fastapi
 uvicorn
 pyjwt
