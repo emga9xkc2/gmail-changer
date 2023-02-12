@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!-- Created by CodingLab |www.youtube.com/CodingLabYT-->
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <!--<title> Drop Down Sidebar Menu | CodingLab </title>-->
+    <!-- <link href="/menu.css" rel="stylesheet" /> -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Boxiocns CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="/static/jquery-1.12.4.min.js"></script>
+    <script src="/static/myscript.js"></script>
+    <link href="/static/toast/toastr.css" rel="stylesheet" />
+    <link href="/codinglab.css" rel="stylesheet" />
+    <link href="/page.css" rel="stylesheet" />
+    <!-- <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"> -->
+
+    <script src="/static/toast/toastr.min.js"></script>
+
+
+    <script type="text/javascript" src="/eel.js"></script>
+
+</head>
+
+<body>
+    <div class="sidebar close">
+        <div class="logo-details pywebview-drag-region">
+            <!-- <i class='bx bxl-c-plus-plus'></i> -->
+            <i class='bx bx-menu'></i>
+            <span class="logo_name">Menu</span>
+        </div>
+        <ul class="nav-links">
+            <li onclick="openMenu(event, 'home');" class="tablink menuselected">
+                <a href="#">
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="link_name">Dashboard</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="#">Dashboard</a></li>
+                </ul>
+            </li>
+            <li onclick="openMenu(event, 'import');" class="tablink">
+                <a href="#">
+                    <i class='bx bx-import'></i>
+                    <span class="link_name">Import</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="#">Import</a></li>
+                </ul>
+            </li>
+
+            <li onclick="openMenu(event, 'caidatkhac');" class="tablink">
+                <a href="#">
+                    <i class='bx bx-cog'></i>
+                    <span class="link_name">Setting</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="#">Setting</a></li>
+                </ul>
+            </li>
+            <li class="logout tablink">
+                <a href="#">
+                    <i class='bx bx-log-out'></i>
+                    <span class="link_name">Quit</span>
+                    <!-- <span class="link_name" onclick="open(location, '_self').close();">Quit</span> -->
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="#">Quit</a></li>
+                </ul>
+            </li>
+
+        </ul>
+    </div>
+    <section class="home-section">
+        <div class="w3-container home-content pywebview-drag-region">
+            <!-- <i class='bx bx-menu'></i> -->
+            <span class="text" id="title">Dashboard</span>
+        </div>
+
+        <div id="load-import"></div>
+        <div id="load-home"></div>
+        <div id="load-caidat"></div>
+        <div id="load-chucnang"></div>
+
+
+
+    </section>
+
+
+    <script src="/function.js"></script>
+    <!-- <script src="/codinglab.js"></script> -->
+</body>
+
+</html>
